@@ -1,9 +1,8 @@
-import * as React from 'react';
+import { useEffect } from 'react';
 import { styled, useTheme } from '@mui/material/styles';
 import { Link } from 'react-router-dom';
 import { Container, Box, Card, CardActionArea, CardContent, CardMedia, Grid, Typography, Divider } from '@mui/material';
 import MilitaryTechIcon from '@mui/icons-material/MilitaryTech';
-import Groups2Icon from '@mui/icons-material/Groups2';
 
 
 const teams = [
@@ -13,13 +12,13 @@ const teams = [
     { id: 4, logo: '/sportitalia.png', name: 'Sportitalia FC', cap: 'Stempiator', players: 'Player 1, Player 2, Player 3, Player 4', colors: 'black, gold', foundation: '2024' },
 ];
 
-useEffect(() => {
-    window.scrollTo(0, 0);
-}, []); 
-
-
 export default function Teams() {
 
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []); 
+
+    
     const theme = useTheme();
 
     return (

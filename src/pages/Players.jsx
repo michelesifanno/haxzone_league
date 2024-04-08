@@ -5,12 +5,15 @@ import { styled, useTheme } from '@mui/material/styles';
 import { Link } from 'react-router-dom';
 import { Typography, Divider, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper } from '@mui/material';
 
+
+
 export default function Players() {
 
     useEffect(() => {
         window.scrollTo(0, 0);
     }, []); 
 
+    
     const theme = useTheme();
 
     const players = [

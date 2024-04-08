@@ -18,6 +18,11 @@ export default function Player() {
     const { name } = useParams();
     const theme = useTheme();
 
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [name]); 
+
+
 
     // Dati dei giocatori
     const players = [

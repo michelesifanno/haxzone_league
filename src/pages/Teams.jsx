@@ -11,8 +11,11 @@ const teams = [
     { id: 2, logo: '/potatoes.png', name: 'Potatoes FC', cap: 'Bisseck', players: 'Player 1, Player 2, Player 3, Player 4', colors: 'yellow, red', foundation: '2024' },
     { id: 3, logo: '/inps.png', name: 'Inps Calcio', cap: 'AndreaPirla', players: 'Player 1, Player 2, Player 3, Player 4', colors: 'blue, black', foundation: '2024' },
     { id: 4, logo: '/sportitalia.png', name: 'Sportitalia FC', cap: 'Stempiator', players: 'Player 1, Player 2, Player 3, Player 4', colors: 'black, gold', foundation: '2024' },
-    // ---
 ];
+
+useEffect(() => {
+    window.scrollTo(0, 0);
+}, []); 
 
 
 export default function Teams() {
@@ -22,7 +25,7 @@ export default function Teams() {
     return (
         <>
             <Container maxWidth={false} sx={{
-                backgroundImage: 'url(./public/texture.jpg)',
+                backgroundImage: 'url(/texture.jpg)',
                 backgroundSize: 'cover',
                 backgroundRepeat: 'no-repeat',
                 minWidth: '100vw',

@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { useEffect } from 'react';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import { styled, useTheme } from '@mui/material/styles';
@@ -6,6 +6,10 @@ import { Link } from 'react-router-dom';
 import { Typography, Divider, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper } from '@mui/material';
 
 export default function Players() {
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []); 
 
     const theme = useTheme();
 

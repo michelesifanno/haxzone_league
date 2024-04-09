@@ -261,7 +261,7 @@ export default function Player() {
                     <br />
                     <Swiper
                         slidesPerView={3}
-                        spaceBetween={30}
+                        spaceBetween={40}
                         navigation={true}
                         modules={[Navigation]}
                         className="Player Carousel"
@@ -279,7 +279,7 @@ export default function Player() {
                     >
                         {filteredPlayers.map(player => (
                             <SwiperSlide key={player.id}>
-                                <Card sx={{ backgroundColor: '#fff', padding: '40px' }}>
+                                <Card sx={{ backgroundColor: '#fff', padding: '40px', width:'80%' }}>
                                     <CardContent>
                                         <img src={player.team.logo} alt="Logo Team" style={{ width: 50 }} />
                                         <Typography variant="h3" component="h3" color={theme.palette.primary.main}>

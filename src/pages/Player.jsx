@@ -10,8 +10,6 @@ import { Typography, Divider, Table, TableBody, TableCell, TableContainer, Table
 import { useParams } from 'react-router-dom';
 import ArrowOutwardOutlinedIcon from '@mui/icons-material/ArrowOutwardOutlined';
 
-
-
 export default function Player() {
 
     const { name } = useParams();
@@ -113,10 +111,9 @@ export default function Player() {
                 backgroundImage: 'url(/texture.jpg)',
                 backgroundSize: 'cover',
                 backgroundRepeat: 'no-repeat',
-                minWidth: '100vw',
                 marginTop: '-80px',
             }}>
-                <Box sx={{ padding: { xs: '120px 20px 80px 20px', md: '160px 20px 80px 20px' } }}>
+                <Box sx={{ padding: { xs: '160px 20px 40px 20px', md: '160px 20px 80px 20px' } }}>
                     <Grid container spacing={2} alignItems="center">
                         <Grid xs={6}>
                             <Typography variant="h5" component="h5" color={theme.palette.text.secondary}>
@@ -247,7 +244,6 @@ export default function Player() {
             </Container>
             <Container maxWidth={false} sx={{
                 backgroundColor: 'primary.main',
-                width: '100%',
                 margin: '0 auto',
             }}>
                 <Box sx={{ padding: '80px 20px' }}>
@@ -278,8 +274,8 @@ export default function Player() {
                         }}
                     >
                         {filteredPlayers.map(player => (
-                            <SwiperSlide key={player.id}>
-                                <Card sx={{ backgroundColor: '#fff', padding: '40px', width:'80%' }}>
+                            <SwiperSlide key={player.id} sx={{ backgroundColor: '#fff', padding: '40px'}}>
+                                <Card sx={{ backgroundColor: '#fff', padding: '40px'}}>
                                     <CardContent>
                                         <img src={player.team.logo} alt="Logo Team" style={{ width: 50 }} />
                                         <Typography variant="h3" component="h3" color={theme.palette.primary.main}>

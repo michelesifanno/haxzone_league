@@ -35,7 +35,7 @@ export default function Players() {
                 marginTop: '-80px',
             }}>
                 <Box sx={{ padding: { xs: '120px 20px', md: '160px 20px' } }}>
-                    <Typography variant="h5" component="h5">
+                <Typography variant="h6" component="h6" color={theme.palette.text.secondary}>
                         HAXZONE LEAGUE
                     </Typography>
                     <Typography variant="h2" component="h2" color={theme.palette.text.third} sx={{ fontWeight: '600' }}>

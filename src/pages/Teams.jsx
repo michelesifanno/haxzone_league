@@ -33,7 +33,7 @@ export default function Teams() {
             }}>
 
                 <Box sx={{ padding: { xs: '120px 20px', md: '160px 20px' } }}>
-                    <Typography variant="h6" component="h6">
+                    <Typography variant="h6" component="h6" color={theme.palette.text.secondary}>
                         HAXZONE LEAGUE
                     </Typography>
                     <Typography variant="h2" component="h2" color={theme.palette.text.third} sx={{ fontWeight: '600' }}>
@@ -45,7 +45,7 @@ export default function Teams() {
                 backgroundColor: '#fff',
                 minHeight: '100vh'
             }}>
-                <Box sx={{ padding: '80px 40px' }}>
+                <Box sx={{ padding: '80px 20px' }}>
                     <Typography variant="h3" component="h3" color={theme.palette.primary.main} sx={{ fontWeight: '600' }}>
                         TUTTE LE SQUADRE
                     </Typography>

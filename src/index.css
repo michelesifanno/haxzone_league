@@ -13,11 +13,12 @@
 }
 .statsGrid {
   padding: 40px;
+  border: 1px solid #f9f9f9;
 }
 
 .textStats {
   font-weight: 600;
-  text-align: center;
+  text-align: left;
 }
 
 .MuiTypography-root.MuiTypography-h6, .MuiTypography-root.MuiTypography-p, .MuiTypography-root.MuiTypography-span {

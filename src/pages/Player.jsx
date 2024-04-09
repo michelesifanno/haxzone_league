@@ -1,14 +1,11 @@
 import { useState, useEffect } from 'react';
 import Box from '@mui/material/Box';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/css';
-import 'swiper/css/navigation';
-import { Navigation } from 'swiper/modules';
 import { styled, useTheme } from '@mui/material/styles';
 import { Link } from 'react-router-dom';
 import { Typography, Divider, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Grid, Container, Card, CardActions, CardContent, CardMedia, Button } from '@mui/material';
 import { useParams } from 'react-router-dom';
 import ArrowOutwardOutlinedIcon from '@mui/icons-material/ArrowOutwardOutlined';
+import useMediaQuery from '@mui/material/useMediaQuery';
 
 export default function Player() {
 
@@ -98,11 +95,15 @@ export default function Player() {
 
     const [filteredPlayers, setFilteredPlayers] = useState([]);
 
+const selectedTeam = player.teamName;
+
     useEffect(() => {
         // Filtro i giocatori escludendo quello corrispondente al parametro name
         const filtered = players.filter(player => player.name !== name);
         setFilteredPlayers(filtered);
     }, [name]);
+
+    const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
 
     return (
@@ -115,7 +116,7 @@ export default function Player() {
             }}>
                 <Box sx={{ padding: { xs: '160px 20px 40px 20px', md: '160px 20px 80px 20px' } }}>
                     <Grid container spacing={2} alignItems="center">
-                        <Grid xs={6}>
+                        <Grid xs={9}>
                             <Typography variant="h5" component="h5" color={theme.palette.text.secondary}>
                                 {player.role}
                             </Typography>
@@ -123,17 +124,16 @@ export default function Player() {
                                 {player.name}
                             </Typography>
                         </Grid>
-                        <Grid item xs={6}>
-                            <Typography variant="h2" component="h2" color={theme.palette.text.secondary} sx={{ fontWeight: '600', textAlign: 'center' }}>
-                                <div style={{
+                        <Grid item xs={3}>
+                        <Typography variant={isMobile ? 'h4' : 'h2'} component="h2" color={theme.palette.text.secondary} sx={{ fontWeight: '600', textAlign: 'center' }}>                                <div style={{
                                     display: 'inline-flex',
                                     justifyContent: 'center',
                                     alignItems: 'center',
                                     backgroundColor: '#e46d55',
                                     borderRadius: '50%',
                                     border: '5px solid #121212',
-                                    width: '120px',
-                                    height: '120px',
+                                    width: isMobile ? '60px' : '120px',
+                                    height: isMobile ? '60px' : '120px',
                                     textAlign: 'center',
                                     lineHeight: '80px'
                                 }}>
@@ -156,86 +156,86 @@ export default function Player() {
                     <Divider />
                     <br />
                     <Grid container spacing={2} justifyContent="flex-start" alignItems="left" sx={{ paddingTop: '40px' }}>
-                        <Grid xs={12} md={4} alignItems="left" className='statsGrid'>
-                            <img src={teamLogo} alt="Logo Team" style={{ width: 150 }} />
+                        <Grid xs={12} md={4} alignItems="left" sx={{padding:'40px'}}>
+                            <img src={teamLogo} alt="Logo Team" style={{ width: 100 }} />
                         </Grid>
                         <Grid xs={12} md={4} alignItems="left" className='statsGrid'>
-                            <Typography variant="h2" component="h2" color="secondary.main" className="textStats" sx={{ paddingBottom: '10px' }}>
+                            <Typography variant="h3" component="h3" color="secondary.main" className="textStats" sx={{ paddingBottom: '10px' }}>
                                 {stats.stats.value} mil.
                             </Typography>
-                            <Typography variant="h4" component="h4" color="primary.main" className="textStats">
+                            <Typography variant="h5" component="h5" color="primary.main" className="textStats">
                                 💸 VALORE
                             </Typography>
                         </Grid>
                         <Grid xs={12} md={4} alignItems="left" className='statsGrid'>
-                            <Typography variant="h2" component="h2" color="secondary.main" className="textStats" sx={{ paddingBottom: '10px' }}>
+                            <Typography variant="h3" component="h3" color="secondary.main" className="textStats" sx={{ paddingBottom: '10px' }}>
                                 {stats.stats.winrate}
                             </Typography>
-                            <Typography variant="h4" component="h4" color="primary.main" className="textStats">
+                            <Typography variant="h5" component="h5" color="primary.main" className="textStats">
                                 💯 WINRATE
                             </Typography>
                         </Grid>
                         <Grid xs={12} md={4} alignItems="left" className='statsGrid'>
-                            <Typography variant="h2" component="h2" color="secondary.main" className="textStats" sx={{ paddingBottom: '10px' }}>
+                            <Typography variant="h3" component="h3" color="secondary.main" className="textStats" sx={{ paddingBottom: '10px' }}>
                                 {stats.stats.games}
                             </Typography>
-                            <Typography variant="h4" component="h4" color="primary.main" className="textStats">
+                            <Typography variant="h5" component="h5" color="primary.main" className="textStats">
                                 🏟️ GAMES
                             </Typography>
                         </Grid>
                         <Grid xs={12} md={4} alignItems="left" className='statsGrid'>
-                            <Typography variant="h2" component="h2" color="secondary.main" className="textStats" sx={{ paddingBottom: '10px' }}>
+                            <Typography variant="h3" component="h3" color="secondary.main" className="textStats" sx={{ paddingBottom: '10px' }}>
                                 {stats.stats.goals}
                             </Typography>
-                            <Typography variant="h4" component="h4" color="primary.main" className="textStats">
+                            <Typography variant="h5" component="h5" color="primary.main" className="textStats">
                                 ⚽ GOALS
                             </Typography>
                         </Grid>
                         <Grid xs={12} md={4} alignItems="left" className='statsGrid'>
-                            <Typography variant="h2" component="h2" color="secondary.main" className="textStats" sx={{ paddingBottom: '10px' }}>
+                            <Typography variant="h3" component="h3" color="secondary.main" className="textStats" sx={{ paddingBottom: '10px' }}>
                                 {stats.stats.wins}
                             </Typography>
-                            <Typography variant="h4" component="h4" color="primary.main" className="textStats">
+                            <Typography variant="h5" component="h5" color="primary.main" className="textStats">
                                 ✨ WINS
                             </Typography>
                         </Grid>
                         <Grid xs={12} md={4} alignItems="left" className='statsGrid'>
-                            <Typography variant="h2" component="h2" color="secondary.main" className="textStats" sx={{ paddingBottom: '10px' }}>
+                            <Typography variant="h3" component="h3" color="secondary.main" className="textStats" sx={{ paddingBottom: '10px' }}>
                                 {stats.stats.playtime}
                             </Typography>
-                            <Typography variant="h4" component="h4" color="primary.main" className="textStats">
+                            <Typography variant="h5" component="h5" color="primary.main" className="textStats">
                                 ⏱️ PLAYTIME
                             </Typography>
                         </Grid>
                         <Grid xs={12} md={4} alignItems="left" className='statsGrid'>
-                            <Typography variant="h2" component="h2" color="secondary.main" className="textStats" sx={{ paddingBottom: '10px' }}>
+                            <Typography variant="h3" component="h3" color="secondary.main" className="textStats" sx={{ paddingBottom: '10px' }}>
                                 {stats.stats.ownGoals}
                             </Typography>
-                            <Typography variant="h4" component="h4" color="primary.main" className="textStats">
+                            <Typography variant="h5" component="h5" color="primary.main" className="textStats">
                                 ❌ OWN GOALS
                             </Typography>
                         </Grid>
                         <Grid xs={12} md={4} alignItems="left" className='statsGrid'>
-                            <Typography variant="h2" component="h2" color="secondary.main" className="textStats" sx={{ paddingBottom: '10px' }}>
+                            <Typography variant="h3" component="h3" color="secondary.main" className="textStats" sx={{ paddingBottom: '10px' }}>
                                 {stats.stats.assists}
                             </Typography>
-                            <Typography variant="h4" component="h4" color="primary.main" className="textStats">
+                            <Typography variant="h5" component="h5" color="primary.main" className="textStats">
                                 👟 ASSISTS
                             </Typography>
                         </Grid>
                         <Grid xs={12} md={4} alignItems="left" className='statsGrid'>
-                            <Typography variant="h2" component="h2" color="secondary.main" className="textStats" sx={{ paddingBottom: '10px' }}>
+                            <Typography variant="h3" component="h3" color="secondary.main" className="textStats" sx={{ paddingBottom: '10px' }}>
                                 {stats.stats.cleanSheets}
                             </Typography>
-                            <Typography variant="h4" component="h4" color="primary.main" className="textStats">
+                            <Typography variant="h5" component="h5" color="primary.main" className="textStats">
                                 🥅 CLEAN SHEETS
                             </Typography>
                         </Grid>
                         <Grid xs={12} md={4} alignItems="left" className='statsGrid'>
-                            <Typography variant="h2" component="h2" color="secondary.main" className="textStats" sx={{ paddingBottom: '10px' }}>
+                            <Typography variant="h3" component="h3" color="secondary.main" className="textStats" sx={{ paddingBottom: '10px' }}>
                                 {stats.stats.hatTricks}
                             </Typography>
-                            <Typography variant="h4" component="h4" color="primary.main" className="textStats">
+                            <Typography variant="h5" component="h5" color="primary.main" className="textStats">
                                 3️⃣ HAT TRICK
                             </Typography>
                         </Grid>
@@ -252,40 +252,25 @@ export default function Player() {
                     </Typography>
                     <br />
                     <Typography variant="p" component="p" color={theme.palette.text.secondary}>
-                        Clicca sul singolo Player per visualizzare di più.
+                        Clicca su "Scheda Player" per scoprire di più.
                     </Typography>
                     <br />
-                    <Swiper
-                        slidesPerView={3}
-                        spaceBetween={40}
-                        navigation={true}
-                        modules={[Navigation]}
-                        className="Player Carousel"
-                        breakpoints={{
-                            0: {
-                                slidesPerView: 1,
-                            },
-                            600: {
-                                slidesPerView: 2,
-                            },
-                            960: {
-                                slidesPerView: 3,
-                            },
-                        }}
-                    >
-                        {filteredPlayers.map(player => (
-                            <SwiperSlide key={player.id} sx={{ backgroundColor: '#fff', padding: '40px'}}>
-                                <Card sx={{ backgroundColor: '#fff', padding: '40px'}}>
-                                    <CardContent>
+                    <Grid container spacing={2} justifyContent="flex-start" alignItems="left" sx={{ paddingTop: '20px' }}>
+                        {filteredPlayers
+                            .filter(player => player.team.name === selectedTeam) // Filtra i giocatori per squadra selezionata
+                            .map(player => (
+                            <Grid xs={6} md={3} alignItems="left" key={player.id}>
+                                <Card sx={{ backgroundColor: '#fff', border: '5px solid #171d8d', padding: '30px' }}>
+                                    <CardContent sx={{ padding: '0px' }}>
                                         <img src={player.team.logo} alt="Logo Team" style={{ width: 50 }} />
-                                        <Typography variant="h3" component="h3" color={theme.palette.primary.main}>
-                                            {player.name} {player.avatar}
+                                        <Typography variant="h4" component="h4" color={theme.palette.primary.main}>
+                                            {player.name}
                                         </Typography>
-                                        <Typography variant="h4" component="h4" color={theme.palette.secondary.main}>
+                                        <Typography variant="h5" component="h5" color={theme.palette.secondary.main}>
                                             {player.role}
                                         </Typography>
                                     </CardContent>
-                                    <CardActions>
+                                    <CardActions sx={{ padding: '0px', paddingTop: '20px' }}>
                                         <Button
                                             size="normal"
                                             variant="contained"
@@ -298,9 +283,9 @@ export default function Player() {
                                         </Button>
                                     </CardActions>
                                 </Card>
-                            </SwiperSlide>
-                        ))}
-                    </Swiper>
+                            </Grid>
+                            ))}
+                    </Grid>
                 </Box>
             </Container>
         </>

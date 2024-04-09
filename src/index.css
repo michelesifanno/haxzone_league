@@ -16,6 +16,11 @@
   border: 1px solid #f9f9f9;
 }
 
+.swiper-slide.swiper-slide-active {
+  width: 100% !important;
+}
+
+
 .textStats {
   font-weight: 600;
   text-align: left;

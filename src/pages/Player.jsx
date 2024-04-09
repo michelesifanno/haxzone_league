@@ -2,8 +2,7 @@ import { useState, useEffect } from 'react';
 import Box from '@mui/material/Box';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
-import 'swiper/css/free-mode';
-import 'swiper/css/pagination';
+import 'swiper/css/navigation';
 import { Navigation } from 'swiper/modules';
 import { styled, useTheme } from '@mui/material/styles';
 import { Link } from 'react-router-dom';
@@ -117,7 +116,7 @@ export default function Player() {
                 minWidth: '100vw',
                 marginTop: '-80px',
             }}>
-                <Box sx={{ padding: { xs: '120px 40px', md: '160px 40px 80px 40px' } }}>
+                <Box sx={{ padding: { xs: '120px 20px 80px 20px', md: '160px 20px 80px 20px' } }}>
                     <Grid container spacing={2} alignItems="center">
                         <Grid xs={6}>
                             <Typography variant="h5" component="h5" color={theme.palette.text.secondary}>
@@ -148,14 +147,6 @@ export default function Player() {
                     </Grid>
                 </Box>
             </Container>
-            <Container maxWidth={false} sx={{ backgroundColor: 'primary.main' }}>
-                <Box sx={{ padding: '20px' }}>
-                    <Typography variant="h3" component="h3" color={theme.palette.primary.main} sx={{ fontWeight: '600' }}>
-                        <img src={teamLogo} alt="Logo Team" style={{ width: 150 }} /> {teamName}
-                    </Typography>
-                </Box>
-            </Container>
-
             <Container maxWidth={false} sx={{
                 backgroundColor: '#fff',
                 minHeight: '100vh'
@@ -169,7 +160,7 @@ export default function Player() {
                     <br />
                     <Grid container spacing={2} justifyContent="flex-start" alignItems="left" sx={{ paddingTop: '40px' }}>
                         <Grid xs={12} md={4} alignItems="left" className='statsGrid'>
-                                <img src={teamLogo} alt="Logo Team" style={{ width: 150 }} />
+                            <img src={teamLogo} alt="Logo Team" style={{ width: 150 }} />
                         </Grid>
                         <Grid xs={12} md={4} alignItems="left" className='statsGrid'>
                             <Typography variant="h2" component="h2" color="secondary.main" className="textStats" sx={{ paddingBottom: '10px' }}>
@@ -254,9 +245,9 @@ export default function Player() {
                     </Grid>
                 </Box>
             </Container>
-            <Container maxWidth="lg" sx={{
+            <Container maxWidth={false} sx={{
                 backgroundColor: 'primary.main',
-                minWidth: '100%',
+                width: '100%',
                 margin: '0 auto',
             }}>
                 <Box sx={{ padding: '80px 20px' }}>
@@ -269,51 +260,51 @@ export default function Player() {
                     </Typography>
                     <br />
                     <Swiper
-    slidesPerView={3}
-    spaceBetween={30}
-    navigation={true}
-    modules={[Navigation]}
-    className="Player Carousel"
-    breakpoints={{
-        0: {
-            slidesPerView: 1,
-        },
-        600: {
-            slidesPerView: 2,
-        },
-        960: {
-            slidesPerView: 3,
-        },
-    }}
->
-    {filteredPlayers.map(player => (
-        <SwiperSlide key={player.id}>
-            <Card sx={{ backgroundColor: '#fff', padding: '20px' }}>
-                <CardContent>
-                    <img src={player.team.logo} alt="Logo Team" style={{ width: 50 }} />
-                    <Typography variant="h3" component="h3" color={theme.palette.primary.main}>
-                        {player.name} {player.avatar}
-                    </Typography>
-                    <Typography variant="h4" component="h4" color={theme.palette.secondary.main}>
-                        {player.role}
-                    </Typography>
-                </CardContent>
-                <CardActions>
-                    <Button
-                        size="normal"
-                        variant="contained"
-                        endIcon={<ArrowOutwardOutlinedIcon />}
-                        component={Link}
-                        to={`/player/${player.name}`}
-                        sx={{ bgcolor: theme.palette.third.main, color: theme.palette.primary.main }}
+                        slidesPerView={3}
+                        spaceBetween={30}
+                        navigation={true}
+                        modules={[Navigation]}
+                        className="Player Carousel"
+                        breakpoints={{
+                            0: {
+                                slidesPerView: 1,
+                            },
+                            600: {
+                                slidesPerView: 2,
+                            },
+                            960: {
+                                slidesPerView: 3,
+                            },
+                        }}
                     >
-                        Scheda player
-                    </Button>
-                </CardActions>
-            </Card>
-        </SwiperSlide>
-    ))}
-</Swiper>
+                        {filteredPlayers.map(player => (
+                            <SwiperSlide key={player.id}>
+                                <Card sx={{ backgroundColor: '#fff', padding: '40px' }}>
+                                    <CardContent>
+                                        <img src={player.team.logo} alt="Logo Team" style={{ width: 50 }} />
+                                        <Typography variant="h3" component="h3" color={theme.palette.primary.main}>
+                                            {player.name} {player.avatar}
+                                        </Typography>
+                                        <Typography variant="h4" component="h4" color={theme.palette.secondary.main}>
+                                            {player.role}
+                                        </Typography>
+                                    </CardContent>
+                                    <CardActions>
+                                        <Button
+                                            size="normal"
+                                            variant="contained"
+                                            endIcon={<ArrowOutwardOutlinedIcon />}
+                                            component={Link}
+                                            to={`/player/${player.name}`}
+                                            sx={{ bgcolor: theme.palette.third.main, color: theme.palette.primary.main }}
+                                        >
+                                            Scheda player
+                                        </Button>
+                                    </CardActions>
+                                </Card>
+                            </SwiperSlide>
+                        ))}
+                    </Swiper>
                 </Box>
             </Container>
         </>

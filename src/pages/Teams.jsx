@@ -28,11 +28,10 @@ export default function Teams() {
                 backgroundSize: 'cover',
                 backgroundRepeat: 'no-repeat',
                 minWidth: '100vw',
-                height: '45vh',
                 marginTop: '-80px',
             }}>
 
-                <Box sx={{ padding: { xs: '120px 20px', md: '160px 20px' } }}>
+<Box sx={{ padding: { xs: '120px 20px 80px 20px', md: '160px 20px 80px 20px' } }}>
                     <Typography variant="h6" component="h6" color={theme.palette.text.secondary}>
                         HAXZONE LEAGUE
                     </Typography>
@@ -81,7 +80,7 @@ export default function Teams() {
                                                             width: '20px',
                                                             height: '20px',
                                                             backgroundColor: color,
-                                                            borderRadius: '15%',
+                                                            borderRadius: '50%',
                                                             marginRight: '5px',
                                                         }}
                                                     ></span>

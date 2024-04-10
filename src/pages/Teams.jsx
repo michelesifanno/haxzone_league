@@ -16,9 +16,9 @@ export default function Teams() {
 
     useEffect(() => {
         window.scrollTo(0, 0);
-    }, []); 
+    }, []);
 
-    
+
     const theme = useTheme();
 
     return (
@@ -31,7 +31,7 @@ export default function Teams() {
                 marginTop: '-80px',
             }}>
 
-<Box sx={{ padding: { xs: '120px 20px 80px 20px', md: '160px 20px 80px 20px' } }}>
+                <Box sx={{ padding: { xs: '160px 20px 40px 20px', md: '160px 20px 80px 20px' } }}>
                     <Typography variant="h6" component="h6" color={theme.palette.text.secondary}>
                         HAXZONE LEAGUE
                     </Typography>
@@ -58,6 +58,13 @@ export default function Teams() {
                     <Grid container spacing={5}>
                         {teams.map((team) => (
                             <Grid item key={team.id} xs={12} sm={6} md={3}>
+                                                                                <Link
+                                                    to={`/team/${team.name}`}
+                                                    style={{
+                                                        color: theme.palette.primary.main,
+                                                        textDecoration: 'none',
+                                                    }}
+                                                >
                                 <Card>
                                     <CardActionArea component={Link} to={`/team/${team.name}`}>
                                         <div style={{ padding: '20px' }}>
@@ -88,20 +95,21 @@ export default function Teams() {
                                             </Typography>
                                             <br />
                                             <Typography variant="body2" gutterBottom color={theme.palette.text.primary} sx={{ fontSize: '18px' }}>
-                                                <Box sx={{ display: 'flex', alignItems: 'center', padding:'10px'  }}>
+                                                <Box sx={{ display: 'flex', alignItems: 'center', padding: '10px' }}>
                                                     <MilitaryTechIcon style={{ color: theme.palette.secondary.main }} sx={{ marginRight: '5px' }} />
                                                     <b style={{ color: theme.palette.secondary.main }}>{team.cap}</b>
-                                                    </Box>
+                                                </Box>
                                             </Typography>
-                                                    <Divider />
+                                            <Divider />
                                             <Typography variant="body2" gutterBottom color={theme.palette.text.primary} sx={{ fontSize: '14px', color: theme.palette.secondary.main }}>
-                                                <Box sx={{ display: 'flex', alignItems: 'center', padding:'10px' }}>
+                                                <Box sx={{ display: 'flex', alignItems: 'center', padding: '10px' }}>
                                                     {team.players}
                                                 </Box>
                                             </Typography>
                                         </CardContent>
                                     </CardActionArea>
                                 </Card>
+                                </Link>
                             </Grid>
                         ))}
                     </Grid>

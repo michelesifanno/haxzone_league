@@ -5,6 +5,7 @@ import {
   import Teams from "../pages/Teams";
   import Players from "../pages/Players";
   import Player from "../pages/Player";
+  import Team from "../pages/Team";
   
   export const router = createBrowserRouter([
     {
@@ -18,6 +19,10 @@ import {
         {
           path:"/teams",
           element: <Teams />
+        },
+        {
+          path: "team/:name",
+          element: <Team />
         },
         {
           path:"/players",

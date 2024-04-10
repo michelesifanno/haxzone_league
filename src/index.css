@@ -16,6 +16,11 @@
   border: 1px solid #f9f9f9;
 }
 
+.highlighted-row {
+  background-color: #e9e9ff;
+}
+
+
 .swiper-slide.swiper-slide-active {
   width: 100% !important;
 }

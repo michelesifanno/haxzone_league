@@ -3,7 +3,7 @@ import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import { styled, useTheme } from '@mui/material/styles';
 import { Link } from 'react-router-dom';
-import { Typography, Divider, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper } from '@mui/material';
+import { Typography, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper } from '@mui/material';
 
 
 
@@ -33,7 +33,7 @@ export default function Players() {
                 minWidth: '100vw',
                 marginTop: '-80px',
             }}>
-                <Box sx={{ padding: { xs: '120px 20px 80px 20px', md: '160px 20px 80px 20px' } }}>
+                <Box sx={{ padding: { xs: '160px 20px 40px 20px', md: '160px 20px 80px 20px' } }}>
                 <Typography variant="h6" component="h6" color={theme.palette.text.secondary}>
                         HAXZONE LEAGUE
                     </Typography>
@@ -56,7 +56,7 @@ export default function Players() {
                     </Typography>
                     <br />
                     <TableContainer component={Paper}>
-                        <Table sx={{ minWidth: 650 }} aria-label="players table">
+                        <Table aria-label="players table">
                             <TableHead sx={{ backgroundColor: theme.palette.third.main }}>
                                 <TableRow>
                                     {headerRow.map((row) => (

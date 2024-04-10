@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import Box from '@mui/material/Box';
-import { styled, useTheme } from '@mui/material/styles';
+import { useTheme } from '@mui/material/styles';
 import { Link } from 'react-router-dom';
-import { Typography, Divider, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Grid, Container, Card, CardActions, CardContent, CardMedia, Button } from '@mui/material';
+import { Typography, Divider, Grid, Container, Card, CardActions, CardContent, Button } from '@mui/material';
 import { useParams } from 'react-router-dom';
 import ArrowOutwardOutlinedIcon from '@mui/icons-material/ArrowOutwardOutlined';
 import useMediaQuery from '@mui/material/useMediaQuery';
@@ -125,7 +125,8 @@ const selectedTeam = player.teamName;
                             </Typography>
                         </Grid>
                         <Grid item xs={3}>
-                        <Typography variant={isMobile ? 'h4' : 'h2'} component="h2" color={theme.palette.text.secondary} sx={{ fontWeight: '600', textAlign: 'center' }}>                                <div style={{
+                        <Typography variant={isMobile ? 'h4' : 'h2'} component="h2" color={theme.palette.text.secondary} sx={{ fontWeight: '600', textAlign: 'center' }}>
+                            <div style={{
                                     display: 'inline-flex',
                                     justifyContent: 'center',
                                     alignItems: 'center',

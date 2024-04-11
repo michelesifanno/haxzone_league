@@ -58,57 +58,57 @@ export default function Teams() {
                     <Grid container spacing={5}>
                         {teams.map((team) => (
                             <Grid item key={team.id} xs={12} sm={6} md={3}>
-                                                                                <Link
-                                                    to={`/team/${team.name}`}
-                                                    style={{
-                                                        color: theme.palette.primary.main,
-                                                        textDecoration: 'none',
-                                                    }}
-                                                >
-                                <Card>
-                                    <CardActionArea component={Link} to={`/team/${team.name}`}>
-                                        <div style={{ padding: '20px' }}>
-                                            <CardMedia
-                                                component="img"
-                                                height="auto"
-                                                weight="100%"
-                                                image={team.logo}
-                                                alt="Logo"
-                                            />
-                                        </div>
-                                        <CardContent>
-                                            <br />
-                                            <Typography variant="h5" component="h5" gutterBottom color={theme.palette.primary.main} sx={{ textTransform: 'uppercase' }}>
-                                                <b>{team.name} {team.colors.split(', ').map((color, index) => (
-                                                    <span
-                                                        key={index}
-                                                        style={{
-                                                            display: 'inline-block',
-                                                            width: '20px',
-                                                            height: '20px',
-                                                            backgroundColor: color,
-                                                            borderRadius: '50%',
-                                                            marginRight: '5px',
-                                                        }}
-                                                    ></span>
-                                                ))}</b>
-                                            </Typography>
-                                            <br />
-                                            <Typography variant="body2" gutterBottom color={theme.palette.text.primary} sx={{ fontSize: '18px' }}>
-                                                <Box sx={{ display: 'flex', alignItems: 'center', padding: '10px' }}>
-                                                    <MilitaryTechIcon style={{ color: theme.palette.secondary.main }} sx={{ marginRight: '5px' }} />
-                                                    <b style={{ color: theme.palette.secondary.main }}>{team.cap}</b>
-                                                </Box>
-                                            </Typography>
-                                            <Divider />
-                                            <Typography variant="body2" gutterBottom color={theme.palette.text.primary} sx={{ fontSize: '14px', color: theme.palette.secondary.main }}>
-                                                <Box sx={{ display: 'flex', alignItems: 'center', padding: '10px' }}>
-                                                    {team.players}
-                                                </Box>
-                                            </Typography>
-                                        </CardContent>
-                                    </CardActionArea>
-                                </Card>
+                                <Link
+                                    to={`/team/${team.name}`}
+                                    style={{
+                                        color: theme.palette.primary.main,
+                                        textDecoration: 'none',
+                                    }}
+                                >
+                                    <Card>
+                                        <CardActionArea component={Link} to={`/team/${team.name}`}>
+                                            <div style={{ padding: '20px' }}>
+                                                <CardMedia
+                                                    component="img"
+                                                    height="auto"
+                                                    weight="100%"
+                                                    image={team.logo}
+                                                    alt="Logo"
+                                                />
+                                            </div>
+                                            <CardContent>
+                                                <br />
+                                                <Typography variant="h5" component="h5" gutterBottom color={theme.palette.primary.main} sx={{ textTransform: 'uppercase' }}>
+                                                    <b>{team.name} {team.colors.split(', ').map((color, index) => (
+                                                        <span
+                                                            key={index}
+                                                            style={{
+                                                                display: 'inline-block',
+                                                                width: '20px',
+                                                                height: '20px',
+                                                                backgroundColor: color,
+                                                                borderRadius: '50%',
+                                                                marginRight: '5px',
+                                                            }}
+                                                        ></span>
+                                                    ))}</b>
+                                                </Typography>
+                                                <br />
+                                                <Typography variant="body2" gutterBottom color={theme.palette.text.primary} sx={{ fontSize: '18px' }}>
+                                                    <Box sx={{ display: 'flex', alignItems: 'center', padding: '10px' }}>
+                                                        <MilitaryTechIcon style={{ color: theme.palette.secondary.main }} sx={{ marginRight: '5px' }} />
+                                                        <b style={{ color: theme.palette.secondary.main }}>{team.cap}</b>
+                                                    </Box>
+                                                </Typography>
+                                                <Divider />
+                                                <Typography variant="body2" gutterBottom color={theme.palette.text.primary} sx={{ fontSize: '14px', color: theme.palette.secondary.main }}>
+                                                    <Box sx={{ display: 'flex', alignItems: 'center', padding: '10px' }}>
+                                                        {team.players}
+                                                    </Box>
+                                                </Typography>
+                                            </CardContent>
+                                        </CardActionArea>
+                                    </Card>
                                 </Link>
                             </Grid>
                         ))}

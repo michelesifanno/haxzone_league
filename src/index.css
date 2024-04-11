@@ -36,6 +36,10 @@
   margin:0px!important;
 }
 
+.MuiTypography-root.MuiTypography-p {
+  font-size: 16px;
+}
+
 .MuiTypography-root.MuiTypography-h1, .MuiTypography-root.MuiTypography-h5, .MuiTypography-root.MuiTypography-h2, .MuiTypography-root.MuiTypography-h3, .MuiTypography-root.MuiTypography-h4 {
   font-family: 'Bai Jamjuree', sans-serif!important;
   margin:0px!important;

@@ -23,6 +23,13 @@ export default function Team() {
         { id: 2, logo: '/potatoes.png', name: 'Potatoes FC', cap: 'Bisseck', colors: 'yellow, red', foundation: '2024' },
         { id: 3, logo: '/inps.png', name: 'Inps Calcio', cap: 'AndreaPirla', colors: 'blue, black', foundation: '2024' },
         { id: 4, logo: '/sportitalia.png', name: 'Sportitalia FC', cap: 'Stempiator', colors: 'black, gold', foundation: '2024' },
+        { id: 5, logo: '/sportitalia.png', name: 'Trmo1', cap: 'Stempiator', colors: 'black, gold', foundation: '2024' },
+        { id: 6, logo: '/sportitalia.png', name: 'Trmo2', cap: 'Stempiator', colors: 'black, gold', foundation: '2024' },
+        { id: 7, logo: '/sportitalia.png', name: 'Trmo3', cap: 'Stempiator', colors: 'black, gold', foundation: '2024' },
+        { id: 8, logo: '/sportitalia.png', name: 'Trmo4', cap: 'Stempiator', colors: 'black, gold', foundation: '2024' },
+        { id: 9, logo: '/sportitalia.png', name: 'Trmo5', cap: 'Stempiator', colors: 'black, gold', foundation: '2024' },
+        { id: 9, logo: '/sportitalia.png', name: 'Trmo6', cap: 'Stempiator', colors: 'black, gold', foundation: '2024' },
+
     ];
 
     const players = [
@@ -137,14 +144,13 @@ export default function Team() {
                             <br />
                             <Leaderboard teams={teams} name={name} />
                             </Grid>
-                        <Grid xs={6}>
-                            <Typography variant="h3" component="h3" color={theme.palette.primary.main} sx={{ fontWeight: '600' }}>
-                                STADIO
+                            <Grid xs={6} sx={{padding:'20px'}}>
+                            <Typography variant="h4" component="h4" color={theme.palette.primary.main} sx={{ fontWeight: '600' }}>
+                                PLAYERS
                             </Typography>
                             <br />
-                            <Divider />
-                            <br />
-                        </Grid>
+                            <Leaderboard teams={teams} name={name} />
+                            </Grid>
                     </Grid>
                 </Box>
             </Container>

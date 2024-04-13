@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { Typography, Divider, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Grid, Container, Card, CardActions, CardContent, CardMedia, Button } from '@mui/material';
 
 
-export default function Leaderboard({ teams, name }) {
+export default function LeaderboardTeam({ teams, name }) {
     
     const theme = useTheme();
 
@@ -86,37 +86,7 @@ export default function Leaderboard({ teams, name }) {
                             </TableCell>
                             <TableCell>
                                 <Typography variant="p" component="p" color={theme.palette.primary.main} sx={{ textTransform: 'uppercase', fontWeight: 'bold' }}>
-                                    P
-                                </Typography>
-                            </TableCell>
-                            <TableCell>
-                                <Typography variant="p" component="p" color={theme.palette.primary.main} sx={{ textTransform: 'uppercase', fontWeight: 'bold' }}>
-                                    G
-                                </Typography>
-                            </TableCell>
-                            <TableCell>
-                                <Typography variant="p" component="p" color={theme.palette.primary.main} sx={{ textTransform: 'uppercase', fontWeight: 'bold' }}>
-                                    V
-                                </Typography>
-                            </TableCell>
-                            <TableCell>
-                                <Typography variant="p" component="p" color={theme.palette.primary.main} sx={{ textTransform: 'uppercase', fontWeight: 'bold' }}>
-                                    N
-                                </Typography>
-                            </TableCell>
-                            <TableCell>
-                                <Typography variant="p" component="p" color={theme.palette.primary.main} sx={{ textTransform: 'uppercase', fontWeight: 'bold' }}>
-                                    S
-                                </Typography>
-                            </TableCell>
-                            <TableCell>
-                                <Typography variant="p" component="p" color={theme.palette.primary.main} sx={{ textTransform: 'uppercase', fontWeight: 'bold' }}>
-                                    GF
-                                </Typography>
-                            </TableCell>
-                            <TableCell>
-                                <Typography variant="p" component="p" color={theme.palette.primary.main} sx={{ textTransform: 'uppercase', fontWeight: 'bold' }}>
-                                    GS
+                                    PT
                                 </Typography>
                             </TableCell>
                         </TableRow>
@@ -148,36 +118,6 @@ export default function Leaderboard({ teams, name }) {
                                 <TableCell>
                                     <Typography variant="p" component="p" color={theme.palette.primary.main} sx={{ fontWeight: '600' }}>
                                         {team.points}
-                                    </Typography>
-                                </TableCell>
-                                <TableCell>
-                                    <Typography variant="p" component="p" color={theme.palette.primary.main} sx={{ fontWeight: '600' }}>
-                                        {team.gamesPlayed}
-                                    </Typography>
-                                </TableCell>
-                                <TableCell>
-                                    <Typography variant="p" component="p" color={theme.palette.primary.main} sx={{ fontWeight: '600' }}>
-                                        {team.wins}
-                                    </Typography>
-                                </TableCell>
-                                <TableCell>
-                                    <Typography variant="p" component="p" color={theme.palette.primary.main} sx={{ fontWeight: '600' }}>
-                                        {team.draws}
-                                    </Typography>
-                                </TableCell>
-                                <TableCell>
-                                    <Typography variant="p" component="p" color={theme.palette.primary.main} sx={{ fontWeight: '600' }}>
-                                        {team.losses}
-                                    </Typography>
-                                </TableCell>
-                                <TableCell>
-                                    <Typography variant="p" component="p" color={theme.palette.primary.main} sx={{ fontWeight: '600' }}>
-                                        {team.goalsFor}
-                                    </Typography>
-                                </TableCell>
-                                <TableCell>
-                                    <Typography variant="p" component="p" color={theme.palette.primary.main} sx={{ fontWeight: '600' }}>
-                                        {team.goalsAgainst}
                                     </Typography>
                                 </TableCell>
                             </TableRow>

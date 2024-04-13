@@ -96,8 +96,7 @@ export default function Teams() {
                                                 <br />
                                                 <Typography variant="body2" gutterBottom color={theme.palette.text.primary} sx={{ fontSize: '18px' }}>
                                                     <Box sx={{ display: 'flex', alignItems: 'center', padding: '10px' }}>
-                                                        <MilitaryTechIcon style={{ color: theme.palette.secondary.main }} sx={{ marginRight: '5px' }} />
-                                                        <b style={{ color: theme.palette.secondary.main }}>{team.cap}</b>
+                                                        🧢 <b style={{ color: theme.palette.secondary.main }}>{team.cap}</b>
                                                     </Box>
                                                 </Typography>
                                                 <Divider />

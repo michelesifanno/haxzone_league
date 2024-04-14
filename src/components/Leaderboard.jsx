@@ -4,10 +4,23 @@ import { Link } from 'react-router-dom';
 import { Typography, Divider, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Grid, Container, Card, CardActions, CardContent, CardMedia, Button } from '@mui/material';
 
 
-export default function Leaderboard({ teams, name }) {
+export default function Leaderboard() {
     
     const theme = useTheme();
 
+    const teams = [
+        { id: 1, logo: '/wolves.png', name: 'Wild Wolves', cap: 'Prox', colors: 'blue, grey', stadium: '/stadium.png', stadiumName: 'Hax Stadium', foundation: '2024' },
+        { id: 2, logo: '/potatoes.png', name: 'Potatoes FC', cap: 'Bisseck', colors: 'yellow, red', stadium: '/stadium.png', stadiumName: 'Hax Stadium', foundation: '2024' },
+        { id: 3, logo: '/inps.png', name: 'Inps Calcio', cap: 'AndreaPirla', colors: 'blue, black', stadium: '/stadium.png', stadiumName: 'Hax Stadium', foundation: '2024' },
+        { id: 4, logo: '/sportitalia.png', name: 'Sportitalia FC', cap: 'Stempiator', colors: 'black, gold', stadium: '/stadium.png', stadiumName: 'Hax Stadium', foundation: '2024' },
+        { id: 5, logo: '/sportitalia.png', name: 'Trmo1', cap: 'Stempiator', colors: 'black, gold', stadium: '/stadium.png', stadiumName: 'Hax Stadium', foundation: '2024' },
+        { id: 6, logo: '/sportitalia.png', name: 'Trmo2', cap: 'Stempiator', colors: 'black, gold', stadium: '/stadium.png', stadiumName: 'Hax Stadium', foundation: '2024' },
+        { id: 7, logo: '/sportitalia.png', name: 'Trmo3', cap: 'Stempiator', colors: 'black, gold', stadium: '/stadium.png', stadiumName: 'Hax Stadium', foundation: '2024' },
+        { id: 8, logo: '/sportitalia.png', name: 'Trmo4', cap: 'Stempiator', colors: 'black, gold', stadium: '/stadium.png', stadiumName: 'Hax Stadium', foundation: '2024' },
+        { id: 9, logo: '/sportitalia.png', name: 'Trmo5', cap: 'Stempiator', colors: 'black, gold', stadium: '/stadium.png', stadiumName: 'Hax Stadium', foundation: '2024' },
+        { id: 9, logo: '/sportitalia.png', name: 'Trmo6', cap: 'Stempiator', colors: 'black, gold', stadium: '/stadium.png', stadiumName: 'Hax Stadium', foundation: '2024' },
+    ];
+    
     const leaderboard = [
         { id: 1, teamName: 'Wild Wolves', points: 0, gamesPlayed: 0, goals: 0, wins: 0, draws: 0, losses: 0, goalsFor: 0, goalsAgainst: 0 },
         { id: 2, teamName: 'Potatoes FC', points: 0, gamesPlayed: 0, goals: 0, wins: 0, draws: 0, losses: 0, goalsFor: 0, goalsAgainst: 0 },
@@ -31,45 +44,22 @@ export default function Leaderboard({ teams, name }) {
         return (b.goalsFor - b.goalsAgainst) - (a.goalsFor - a.goalsAgainst);
     });
 
-    let [classifica, setClassifica] = useState(leaderboard);
-
-    useEffect(() => {
-        const updatedClassifica = leaderboard.map((team, index) => ({
-            ...team,
-            position: index + 1,
-            isHighlighted: team.teamName === name,
-            logo: teams.find(t => t.name === team.teamName)?.logo,
-        }));
-        setClassifica(updatedClassifica);
-    }, [name, teams]);
-
-    const teamIndex = classifica.findIndex(team => team.teamName === name);
-    const position = teamIndex + 1;
-
-    let numTeamsToShowAbove;
-    let numTeamsToShowBelow;
-    
-    if (position === classifica.length) {
-        // Se la squadra è l'ultima, mostra 4 squadre sopra
-        numTeamsToShowAbove = Math.min(position - 1, 4);
-        numTeamsToShowBelow = 0;
-    } else if (position === classifica.length-1){
-        // Altrimenti, calcola il numero di squadre sopra e sotto in modo simmetrico
-        numTeamsToShowAbove = Math.min(position - 1, 3);
-        numTeamsToShowBelow = 1;
-    }
-    else {
-        // Altrimenti, calcola il numero di squadre sopra e sotto in modo simmetrico
-        numTeamsToShowAbove = Math.min(position - 1, Math.ceil((5 - 1) / 2));
-        numTeamsToShowBelow = Math.min(classifica.length - position, 4 - numTeamsToShowAbove);
-    }
-    
-    const start = Math.max(0, position - numTeamsToShowAbove - 1);
-    const end = Math.min(classifica.length - 1, position + numTeamsToShowBelow - 1);
-                            
+                                
 
     return (
         <>
+                    <Grid container spacing={2} justifyContent="flex-start" alignItems="center">
+                <Grid item xs={12} md={9} alignItems="center">
+                    <Typography variant="h4" component="h4" color={theme.palette.primary.main} sx={{ fontWeight: '600', paddingBottom:'10px' }}>
+                        CLASSIFICA
+                    </Typography>
+                    <Typography variant="p" component="p" color={theme.palette.text.primary}>
+                        Consulta qui la classifica di HaxZone League.
+                    </Typography>
+                </Grid>
+</Grid>
+<Divider sx={{margin:'10px 0px'}}/>
+<br />
             <TableContainer component={Paper}>
                 <Table aria-label="leaderboard table">
                     <TableHead sx={{ backgroundColor: theme.palette.third.main }}>
@@ -122,61 +112,63 @@ export default function Leaderboard({ teams, name }) {
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        {classifica.slice(start, end + 1).map((team, index) => (
-                            <TableRow key={team.id} className={team.teamName === name ? 'highlighted-row' : ''}>
+                        {leaderboard.map((team, index) => (
+                            <TableRow key={team.id}>
                                 <TableCell>
-                                    <Typography variant="p" component="p" color={theme.palette.primary.main} sx={{ fontWeight: '600' }}>
-                                        {team.position}
+                                    <Typography variant="h6" component="h6" color={theme.palette.primary.main} sx={{ fontWeight: '600' }}>
+                                        {index + 1}
                                     </Typography>
                                 </TableCell>
                                 <TableCell>
-                                    <Typography variant="p" component="p" color={theme.palette.primary.main} sx={{ fontWeight: '600' }}>
+                                    <Typography variant="h6" component="h6" color={theme.palette.primary.main} sx={{ fontWeight: '600' }}>
                                         <Link
                                             to={`/team/${team.teamName}`}
                                             style={{
                                                 color: theme.palette.primary.main,
                                                 textDecoration: 'none',
+                                                fontWeight:'600',
+                                                textTransform:'uppercase'
                                             }}
                                         >
                                             <div style={{ display: 'flex', alignItems: 'center' }}>
-                                                <img src={teams.find(t => t.name === team.teamName)?.logo} alt="Logo Team" style={{ width: 30, marginRight: 10 }} />
+                                                <img src={teams.find(t => t.name === team.teamName)?.logo} alt="Logo Team" style={{ width: 40, marginRight: 10 }} />
                                                 {team.teamName}
                                             </div>
                                         </Link>
                                     </Typography>
                                 </TableCell>
                                 <TableCell>
-                                    <Typography variant="p" component="p" color={theme.palette.primary.main} sx={{ fontWeight: '600' }}>
+                                    <Typography variant="h6" component="h6" color={theme.palette.primary.main} sx={{ fontWeight: '600' }}>
                                         {team.points}
                                     </Typography>
                                 </TableCell>
                                 <TableCell>
-                                    <Typography variant="p" component="p" color={theme.palette.primary.main} sx={{ fontWeight: '600' }}>
+                                    <Typography variant="h6" component="h6" color={theme.palette.primary.main} sx={{ fontWeight: '600' }}>
                                         {team.gamesPlayed}
                                     </Typography>
                                 </TableCell>
                                 <TableCell>
-                                    <Typography variant="p" component="p" color={theme.palette.primary.main} sx={{ fontWeight: '600' }}>
+                                    <Typography variant="h6" component="h6" color={theme.palette.primary.main} sx={{ fontWeight: '600' }}>
                                         {team.wins}
                                     </Typography>
                                 </TableCell>
                                 <TableCell>
-                                    <Typography variant="p" component="p" color={theme.palette.primary.main} sx={{ fontWeight: '600' }}>
+                                    <Typography variant="h6" component="h6" color={theme.palette.primary.main} sx={{ fontWeight: '600' }}>
                                         {team.draws}
                                     </Typography>
                                 </TableCell>
                                 <TableCell>
-                                    <Typography variant="p" component="p" color={theme.palette.primary.main} sx={{ fontWeight: '600' }}>
+                                    <Typography variant="h6" component="h6" color={theme.palette.primary.main} sx={{ fontWeight: '600' }}>
                                         {team.losses}
                                     </Typography>
                                 </TableCell>
                                 <TableCell>
-                                    <Typography variant="p" component="p" color={theme.palette.primary.main} sx={{ fontWeight: '600' }}>
+                                    <Typography variant="h6" component="h6" color={theme.palette.primary.main} sx={{ fontWeight: '600' }}>
                                         {team.goalsFor}
                                     </Typography>
                                 </TableCell>
                                 <TableCell>
-                                    <Typography variant="p" component="p" color={theme.palette.primary.main} sx={{ fontWeight: '600' }}>
+                                    <Typography variant="h6" component="h6" color={theme.palette.primary.main} sx={{ fontWeight: '600' }}>
                                         {team.goalsAgainst}
                                     </Typography>
                                 </TableCell>

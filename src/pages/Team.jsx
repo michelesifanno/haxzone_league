@@ -9,6 +9,7 @@ import LeaderboardTeam from '../components/LeaderboardTeam';
 import PlayerList from '../components/PlayerList';
 import TeamStats from '../components/TeamStats';
 import ArrowOutwardOutlinedIcon from '@mui/icons-material/ArrowOutwardOutlined';
+import TeamCalendar from '../components/TeamCalendar';
 
 
 export default function Team() {
@@ -71,7 +72,7 @@ export default function Team() {
                         <Grid item xs={12} md={2}>
                             <img src={team.logo} alt="Logo Team" style={{ width: 200 }} />
                         </Grid>
-                        <Grid item xs={16} md={6}>
+                        <Grid item xs={12} md={6}>
                             <Typography variant={isMobile ? 'h4' : 'h3'} component="h3" color={theme.palette.text.secondary} sx={{ fontWeight: '600', textTransform: 'uppercase' }}>
                                 {team.name}
                             </Typography>
@@ -113,7 +114,7 @@ export default function Team() {
             }}>
                 <Box sx={{ padding: { sx: '60px 0px', md: '60px 0px' } }}>
                     <Grid container>
-                        <Grid xs={12} md={6} sx={{ padding: '40px 20px' }}>
+                        <Grid xs={12} md={6} sx={{ padding: '20px' }}>
                             <Typography variant="h4" component="h4" color={theme.palette.primary.main} sx={{ fontWeight: '600' }}>
                                 CLASSIFICA
                             </Typography>
@@ -132,7 +133,7 @@ export default function Team() {
                                 CALENDARIO
                             </Typography>
                             <br />
-                            <LeaderboardTeam teams={teams} name={name} />
+                            <TeamCalendar name={name} />
                         </Grid>
                         <Grid xs={12} md={6} sx={{ padding: '20px' }}>
                             <Typography variant="h4" component="h4" color={theme.palette.primary.main} sx={{ fontWeight: '600' }}>
@@ -171,7 +172,7 @@ export default function Team() {
                                     <CardContent sx={{ padding: '0px' }}>
                                         <img src={team.logo} alt="Logo Team" style={{ width: 80 }} />
                                         <br />
-                                        <Typography variant="h4" component="h4" color={theme.palette.primary.main}>
+                                        <Typography variant="h4" component="h4" color={theme.palette.primary.main} sx={{letterSpacing:'-1px'}}>
                                             {team.name}
                                         </Typography>
                                     </CardContent>
@@ -193,8 +194,6 @@ export default function Team() {
                     </Grid>
                 </Box>
             </Container>
-
-
         </>
     );
 }

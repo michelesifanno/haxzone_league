@@ -2,15 +2,22 @@ import { useEffect } from 'react';
 import { styled, useTheme } from '@mui/material/styles';
 import { Link } from 'react-router-dom';
 import { Container, Box, Card, CardActionArea, CardContent, CardMedia, Grid, Typography, Divider } from '@mui/material';
-import MilitaryTechIcon from '@mui/icons-material/MilitaryTech';
-
+import Calendar from '../components/Calendar';
 
 const teams = [
-    { id: 1, logo: '/wolves.png', name: 'Wild Wolves', cap: 'Prox', players: 'Player 1, Player 2, Player 3, Player 4', colors: 'blue, grey', foundation: '2024' },
-    { id: 2, logo: '/potatoes.png', name: 'Potatoes FC', cap: 'Bisseck', players: 'Player 1, Player 2, Player 3, Player 4', colors: 'yellow, red', foundation: '2024' },
-    { id: 3, logo: '/inps.png', name: 'Inps Calcio', cap: 'AndreaPirla', players: 'Player 1, Player 2, Player 3, Player 4', colors: 'blue, black', foundation: '2024' },
-    { id: 4, logo: '/sportitalia.png', name: 'Sportitalia FC', cap: 'Stempiator', players: 'Player 1, Player 2, Player 3, Player 4', colors: 'black, gold', foundation: '2024' },
+    { id: 1, logo: '/wolves.png', name: 'Wild Wolves', cap: 'Prox', colors: 'blue, grey', stadium: '/stadium.png', stadiumName: 'Hax Stadium', foundation: '2024' },
+    { id: 2, logo: '/potatoes.png', name: 'Potatoes FC', cap: 'Bisseck', colors: 'yellow, red', stadium: '/stadium.png', stadiumName: 'Hax Stadium', foundation: '2024' },
+    { id: 3, logo: '/inps.png', name: 'Inps Calcio', cap: 'AndreaPirla', colors: 'blue, black', stadium: '/stadium.png', stadiumName: 'Hax Stadium', foundation: '2024' },
+    { id: 4, logo: '/sportitalia.png', name: 'Sportitalia FC', cap: 'Stempiator', colors: 'black, gold', stadium: '/stadium.png', stadiumName: 'Hax Stadium', foundation: '2024' },
+    { id: 5, logo: '/sportitalia.png', name: 'Trmo1', cap: 'Stempiator', colors: 'black, gold', stadium: '/stadium.png', stadiumName: 'Hax Stadium', foundation: '2024' },
+    { id: 6, logo: '/sportitalia.png', name: 'Trmo2', cap: 'Stempiator', colors: 'black, gold', stadium: '/stadium.png', stadiumName: 'Hax Stadium', foundation: '2024' },
+    { id: 7, logo: '/sportitalia.png', name: 'Trmo3', cap: 'Stempiator', colors: 'black, gold', stadium: '/stadium.png', stadiumName: 'Hax Stadium', foundation: '2024' },
+    { id: 8, logo: '/sportitalia.png', name: 'Trmo4', cap: 'Stempiator', colors: 'black, gold', stadium: '/stadium.png', stadiumName: 'Hax Stadium', foundation: '2024' },
+    { id: 9, logo: '/sportitalia.png', name: 'Trmo5', cap: 'Stempiator', colors: 'black, gold', stadium: '/stadium.png', stadiumName: 'Hax Stadium', foundation: '2024' },
+    { id: 9, logo: '/sportitalia.png', name: 'Trmo6', cap: 'Stempiator', colors: 'black, gold', stadium: '/stadium.png', stadiumName: 'Hax Stadium', foundation: '2024' },
 ];
+
+
 
 export default function Teams() {
 

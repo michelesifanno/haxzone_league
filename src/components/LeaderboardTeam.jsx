@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { styled, useTheme } from '@mui/material/styles';
 import { Link } from 'react-router-dom';
-import { Typography, Divider, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Grid, Container, Card, CardActions, CardContent, CardMedia, Button } from '@mui/material';
+import { Typography, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper } from '@mui/material';
 
 
 export default function LeaderboardTeam({ teams, name }) {

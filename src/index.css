@@ -20,11 +20,13 @@
   background-color: #e9e9ff;
 }
 
-
-.swiper-slide.swiper-slide-active {
-  width: 100% !important;
+.matchGrid:hover {
+  background-color: #e9e9ff;
 }
 
+.MuiGrid-item {
+  padding:10px!important;
+}
 
 .textStats {
   font-weight: 600;

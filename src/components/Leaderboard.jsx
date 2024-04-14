@@ -1,12 +1,15 @@
 import { useState, useEffect } from 'react';
 import { styled, useTheme } from '@mui/material/styles';
 import { Link } from 'react-router-dom';
+import useMediaQuery from '@mui/material/useMediaQuery';
 import { Typography, Divider, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Grid, Container, Card, CardActions, CardContent, CardMedia, Button } from '@mui/material';
 
 
 export default function Leaderboard() {
     
     const theme = useTheme();
+    const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+
 
     const teams = [
         { id: 1, logo: '/wolves.png', name: 'Wild Wolves', cap: 'Prox', colors: 'blue, grey', stadium: '/stadium.png', stadiumName: 'Hax Stadium', foundation: '2024' },
@@ -115,12 +118,12 @@ export default function Leaderboard() {
                         {leaderboard.map((team, index) => (
                             <TableRow key={team.id}>
                                 <TableCell>
-                                    <Typography variant="h6" component="h6" color={theme.palette.primary.main} sx={{ fontWeight: '600' }}>
+                                    <Typography variant={isMobile ? "p" : "h6" } color={theme.palette.primary.main} sx={{ fontWeight: '600' }}>
                                         {index + 1}
                                     </Typography>
                                 </TableCell>
                                 <TableCell>
-                                    <Typography variant="h6" component="h6" color={theme.palette.primary.main} sx={{ fontWeight: '600' }}>
+                                    <Typography variant={isMobile ? "p" : "h6" } color={theme.palette.primary.main} sx={{ fontWeight: '600' }}>
                                         <Link
                                             to={`/team/${team.teamName}`}
                                             style={{
@@ -138,37 +141,37 @@ export default function Leaderboard() {
                                     </Typography>
                                 </TableCell>
                                 <TableCell>
-                                    <Typography variant="h6" component="h6" color={theme.palette.primary.main} sx={{ fontWeight: '600' }}>
+                                    <Typography variant={isMobile ? "p" : "h6" } color={theme.palette.primary.main} sx={{ fontWeight: '600' }}>
                                         {team.points}
                                     </Typography>
                                 </TableCell>
                                 <TableCell>
-                                    <Typography variant="h6" component="h6" color={theme.palette.primary.main} sx={{ fontWeight: '600' }}>
+                                    <Typography variant={isMobile ? "p" : "h6" } color={theme.palette.primary.main} sx={{ fontWeight: '600' }}>
                                         {team.gamesPlayed}
                                     </Typography>
                                 </TableCell>
                                 <TableCell>
-                                    <Typography variant="h6" component="h6" color={theme.palette.primary.main} sx={{ fontWeight: '600' }}>
+                                    <Typography variant={isMobile ? "p" : "h6" } color={theme.palette.primary.main} sx={{ fontWeight: '600' }}>
                                         {team.wins}
                                     </Typography>
                                 </TableCell>
                                 <TableCell>
-                                    <Typography variant="h6" component="h6" color={theme.palette.primary.main} sx={{ fontWeight: '600' }}>
+                                    <Typography variant={isMobile ? "p" : "h6" } color={theme.palette.primary.main} sx={{ fontWeight: '600' }}>
                                         {team.draws}
                                     </Typography>
                                 </TableCell>
                                 <TableCell>
-                                    <Typography variant="h6" component="h6" color={theme.palette.primary.main} sx={{ fontWeight: '600' }}>
+                                    <Typography variant={isMobile ? "p" : "h6" } color={theme.palette.primary.main} sx={{ fontWeight: '600' }}>
                                         {team.losses}
                                     </Typography>
                                 </TableCell>
                                 <TableCell>
-                                    <Typography variant="h6" component="h6" color={theme.palette.primary.main} sx={{ fontWeight: '600' }}>
+                                    <Typography variant={isMobile ? "p" : "h6" } color={theme.palette.primary.main} sx={{ fontWeight: '600' }}>
                                         {team.goalsFor}
                                     </Typography>
                                 </TableCell>
                                 <TableCell>
-                                    <Typography variant="h6" component="h6" color={theme.palette.primary.main} sx={{ fontWeight: '600' }}>
+                                    <Typography variant={isMobile ? "p" : "h6" } color={theme.palette.primary.main} sx={{ fontWeight: '600' }}>
                                         {team.goalsAgainst}
                                     </Typography>
                                 </TableCell>

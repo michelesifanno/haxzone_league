@@ -22,14 +22,6 @@ const LeagueNavigation = ({ activeComponent, setActiveComponent }) => {
       >
         Classifica
       </Button>
-      <Button
-        variant={activeComponent === 'teams' ? 'contained' : 'normal'}
-        size='large'
-        color="secondary"
-        onClick={() => setActiveComponent('teams')}
-      >
-        Squadre
-      </Button>
     </div>
   );
 };

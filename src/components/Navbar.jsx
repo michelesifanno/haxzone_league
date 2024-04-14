@@ -7,7 +7,9 @@ import MuiAppBar from '@mui/material/AppBar';
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
 import ListItem from '@mui/material/ListItem';
+import useMediaQuery from '@mui/material/useMediaQuery';
 import ArrowOutwardOutlinedIcon from '@mui/icons-material/ArrowOutwardOutlined';
+
 
 const drawerWidth = 400;
 
@@ -72,9 +74,14 @@ ElevationScroll.propTypes = {
     children: PropTypes.element.isRequired
 };
 
+
+
 export default function Navbar(props) {
 
     const theme = useTheme();
+
+    const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+
     const [open, setOpen] = React.useState(false);
 
     const handleDrawerOpen = () => {
@@ -94,36 +101,49 @@ export default function Navbar(props) {
             <ElevationScroll {...props}>
                 <AppBar open={open}>
                     <Toolbar>
-                    <Grid container spacing={2}> 
-                    <Grid item xs={2} sm={4} md={4} sx={{justifyContent:"flex-start", display: 'flex', alignItems: 'center'}}>
-                        <IconButton
-                            color="inherit"
-                            aria-label="open drawer"
-                            onClick={handleDrawerOpen}
-                            edge="start"
-                            sx={{ mr: 2, ...(open && { display: 'none' }) }}
-                        >
-                            <MenuIcon sx={{ fontSize: '36px', color: '#fff' }} />
-                        </IconButton>
-                        </Grid>
-                        <Grid item xs={2} sm={4} md={4} sx={{justifyContent:"center", display: 'flex', alignItems: 'center'}}>
-                        <img
-                            src='/logo.jpg'
-                            alt='Logo'
-                            height={60}
-                            style={{ padding: '7px' }}
-                        />
-                        </Grid>
-                        <Grid item xs={2} sm={4} md={4} sx={{justifyContent:"flex-end", display: 'flex', alignItems: 'center'}}>
-                        <Button
-                            size="large"
-                            variant="contained"
-                            endIcon={<ArrowOutwardOutlinedIcon />}
-                            sx={{ bgcolor: theme.palette.secondary.main, color: theme.palette.text.secondary }}
-                        >
-                            Server Discord
-                        </Button>
-                        </Grid>
+                        <Grid container spacing={2}>
+                            <Grid item xs={4} sm={4} md={4} sx={{ justifyContent: "flex-start", display: 'flex', alignItems: 'center', marginBottom:'-10px' }}>
+                                <IconButton
+                                    color="inherit"
+                                    aria-label="open drawer"
+                                    onClick={handleDrawerOpen}
+                                    edge="start"
+                                    sx={{ mr: 2, ...(open && { display: 'none' }) }}
+                                >
+                                    <MenuIcon sx={{ fontSize: '36px', color: '#fff' }} />
+                                </IconButton>
+                            </Grid>
+                            <Grid item xs={4} sm={4} md={4} sx={{ justifyContent: "center", display: 'flex', alignItems: 'center', marginBottom:'-10px' }}>
+                                <img
+                                    src='/logo.jpg'
+                                    alt='Logo'
+                                    height={60}
+                                    style={{ padding: '7px' }}
+                                />
+                            </Grid>
+                            <Grid item xs={4} sm={4} md={4} sx={{ justifyContent: "flex-end", display: 'flex', alignItems: 'center', marginBottom:'-10px' }}>
+                                {isMobile ?
+                                    <Button
+                                        size="medium"
+                                        variant="contained"
+                                        endIcon={<ArrowOutwardOutlinedIcon />}
+                                        sx={{ bgcolor: theme.palette.secondary.main, color: theme.palette.text.secondary }}
+                                    >
+                                        Discord
+                                    </Button>
+                                    :
+                                    <Button
+                                        size="large"
+                                        variant="contained"
+                                        endIcon={<ArrowOutwardOutlinedIcon />}
+                                        sx={{ bgcolor: theme.palette.secondary.main, color: theme.palette.text.secondary }}
+                                    >
+                                        Server Discord
+                                    </Button>
+
+                                }
+
+                            </Grid>
                         </Grid>
                     </Toolbar>
                 </AppBar>

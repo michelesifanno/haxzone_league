@@ -22,10 +22,15 @@ export default function TeamMatchCalendar({ calendar, name }) {
     ];
 
     // Estrai le partite future del calendario per il team selezionato
+
+    const currentDate = new Date();
+    const formattedCurrentDate = currentDate.toISOString().split('T')[0]; // Ottieni la data attuale nel formato 'YYYY-MM-DD'
+
     const futureMatches = Object.values(calendar)
         .flat()
-        .filter(match => match.homeTeam === name || match.awayTeam === name)
-        .slice(0, 5); 
+        .filter(match => (match.homeTeam === name || match.awayTeam === name) && new Date(match.date) >= currentDate)
+        .slice(0, 5);
+        
 
     return (
         <>

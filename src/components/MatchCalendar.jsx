@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useTheme } from '@mui/material/styles';
 import { Link } from 'react-router-dom';
+import useMediaQuery from '@mui/material/useMediaQuery';
 import { Typography, Grid, InputLabel, MenuItem, FormHelperText, FormControl, Select, Divider } from '@mui/material';
 
 function MatchCalendar({ matchCalendar, matches }) {
@@ -30,28 +31,30 @@ function MatchCalendar({ matchCalendar, matches }) {
     useEffect(() => {
         const currentDate = new Date();
         const formattedCurrentDate = currentDate.toISOString().split('T')[0]; // Ottieni la data attuale nel formato 'YYYY-MM-DD'
-    
+
         // Trova la giornata più vicina e futura rispetto alla data attuale
         const giornataCorrente = Object.keys(matchCalendar).find(giornata =>
             matchCalendar[giornata].some(match => new Date(match.date) >= currentDate)
         );
-    
+
         // Se trovi la giornata corrispondente, selezionala
         if (giornataCorrente) {
             setSelectedGiornata(giornataCorrente);
         }
     }, [matchCalendar]);
-    
-    
+
+
     const handleGiornataChange = (event) => {
         setSelectedGiornata(event.target.value);
     };
+
+    const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
     return (
         <>
             <Grid container spacing={2} justifyContent="flex-start" alignItems="center">
                 <Grid item xs={12} md={9} alignItems="center">
-                    <Typography variant="h4" component="h4" color={theme.palette.primary.main} sx={{ fontWeight: '600', paddingBottom:'10px' }}>
+                    <Typography variant="h4" component="h4" color={theme.palette.primary.main} sx={{ fontWeight: '600', paddingBottom: '10px' }}>
                         CALENDARIO E RISULTATI
                     </Typography>
                     <Typography variant="p" component="p" color={theme.palette.text.primary}>
@@ -79,52 +82,97 @@ function MatchCalendar({ matchCalendar, matches }) {
                     </FormControl>
                 </Grid>
             </Grid>
-            <Divider sx={{margin:'10px 0px'}}/>
+            <Divider sx={{ margin: '10px 0px' }} />
             {(matches[selectedGiornata] || matchCalendar[selectedGiornata] || []).map((match) => (
                 <Grid container spacing={2} justifyContent="flex-start" alignItems="center" key={match.id} className="matchGrid" sx={{ backgroundColor: '#fbfbfd', padding: '10px', border: '1px solid #eee', margin: '20px 0px' }}>
-                    <Grid item xs={12} md={1} alignItems="center" sx={{ padding: '10px' }}>
-                        <Typography variant="p" component="p" color={theme.palette.text.primary} sx={{ fontSize: '14px' }}>
-                            {selectedGiornata}<br />
-                            {match.date}
-                        </Typography>
-                    </Grid>
-                    <Grid item xs={12} md={4} alignItems="center" sx={{ padding: '10px' }}>
-                        <Typography variant="h6" component="h6" color={theme.palette.primary.main} sx={{ fontWeight: '600', display: 'flex', alignItems: 'center', justifyContent: 'flex-end', textTransform: 'uppercase' }}>
-                            <Link
-                                to={`/team/${match.homeTeam}`}
-                                style={{
-                                    color: theme.palette.primary.main,
-                                    textDecoration: 'none',
-                                    fontWeight:'700',
-                                }}
-                            >
-                                <div style={{ display: 'flex', alignItems: 'center' }}>
-                                    {match.homeTeam} <img src={teams.find(team => team.name === match.homeTeam)?.logo} alt={match.homeTeam} style={{ width: '50px', height: '50px', marginLeft: '10px' }} />
-                                </div>
-                            </Link>
-                        </Typography>
-                    </Grid>
-                    <Grid item xs={12} md={2} alignItems="center" justifyContent="center" sx={{ padding: '10px' }}>
-                        <Typography variant="h5" component="h5" color={theme.palette.secondary.main} sx={{ fontWeight: '600', display: 'flex', justifyContent: 'center' }}>
-                            {matches[selectedGiornata] ? (
-                                match.homeScore !== undefined && match.awayScore !== undefined ? (
-                                    <span>{match.homeScore}-{match.awayScore}</span>
+                    {isMobile ?
+                    <Grid item xs={12} alignItems="center" sx={{ padding: '10px' }}>
+                    <Typography variant="p" component="p" color={theme.palette.text.primary} sx={{ fontSize: '14px' }}>
+                        {selectedGiornata} - {match.date}
+                    </Typography>
+                </Grid>
+                 :
+                    <Grid item md={1} alignItems="center" sx={{ padding: '10px' }}>
+                    <Typography variant="p" component="p" color={theme.palette.text.primary} sx={{ fontSize: '14px' }}>
+                        {selectedGiornata}<br />
+                        {match.date}
+                    </Typography>
+                </Grid>
+                }
+                    {isMobile ?
+                        <Grid item xs={10} alignItems="center" sx={{ padding: '10px' }}>
+                            <Typography variant="h6" component="h6" color={theme.palette.primary.main} sx={{ fontWeight: '600', display: 'flex', alignItems: 'center', justifyContent: 'flex-start', textTransform: 'uppercase' }}>
+                                <Link
+                                    to={`/team/${match.homeTeam}`}
+                                    style={{
+                                        color: theme.palette.primary.main,
+                                        textDecoration: 'none',
+                                        fontWeight: '700',
+                                    }}
+                                >
+                                    <div style={{ display: 'flex', alignItems: 'center' }}>
+                                        <img src={teams.find(team => team.name === match.homeTeam)?.logo} alt={match.homeTeam} style={{ width: '50px', height: '50px', marginRight: '10px' }} /> {match.homeTeam}
+                                    </div>
+                                </Link>
+                            </Typography>
+                        </Grid>
+                        : <Grid md={4} alignItems="center" sx={{ padding: '10px' }}>
+                            <Typography variant="h6" component="h6" color={theme.palette.primary.main} sx={{ fontWeight: '600', display: 'flex', alignItems: 'center', justifyContent: 'flex-end', textTransform: 'uppercase' }}>
+                                <Link
+                                    to={`/team/${match.homeTeam}`}
+                                    style={{
+                                        color: theme.palette.primary.main,
+                                        textDecoration: 'none',
+                                        fontWeight: '700',
+                                    }}
+                                >
+                                    <div style={{ display: 'flex', alignItems: 'center' }}>
+                                        {match.homeTeam} <img src={teams.find(team => team.name === match.homeTeam)?.logo} alt={match.homeTeam} style={{ width: '50px', height: '50px', marginLeft: '10px' }} />
+                                    </div>
+                                </Link>
+                            </Typography>
+                        </Grid>
+                    }
+                    {isMobile ?
+                        <Grid item xs={2} alignItems="center" justifyContent="center" sx={{ padding: '10px' }}>
+                            <Typography variant="h5" component="h5" color={theme.palette.secondary.main} sx={{ fontWeight: '600', display: 'flex', justifyContent: 'center' }}>
+                                {matches[selectedGiornata] ? (
+                                    match.homeScore !== undefined && match.awayScore !== undefined ? (
+                                        <span>{match.homeScore}</span>
+                                    ) : (
+                                        <span>VS</span>
+                                    )
                                 ) : (
                                     <span>VS</span>
-                                )
-                            ) : (
-                                <span>VS</span>
-                            )}
-                        </Typography>
-                    </Grid>
-                    <Grid item xs={12} md={4} alignItems="center" sx={{ padding: '10px' }}>
+                                )}
+                            </Typography>
+                        </Grid>
+                        : ''}
+                    {isMobile ?
+                        ''
+                        :
+                        <Grid item xs={12} md={2} alignItems="center" justifyContent="center" sx={{ padding: '10px' }}>
+                            <Typography variant="h5" component="h5" color={theme.palette.secondary.main} sx={{ fontWeight: '600', display: 'flex', justifyContent: 'center' }}>
+                                {matches[selectedGiornata] ? (
+                                    match.homeScore !== undefined && match.awayScore !== undefined ? (
+                                        <span>{match.homeScore}-{match.awayScore}</span>
+                                    ) : (
+                                        <span>VS</span>
+                                    )
+                                ) : (
+                                    <span>VS</span>
+                                )}
+                            </Typography>
+                        </Grid>}
+                        {isMobile ?
+                        <Grid item xs={10} alignItems="center" sx={{ padding: '10px' }}>
                         <Typography variant="h6" component="h6" color={theme.palette.primary.main} sx={{ fontWeight: '600', display: 'flex', alignItems: 'center', justifyContent: 'flex-start', textTransform: 'uppercase' }}>
                             <Link
                                 to={`/team/${match.awayTeam}`}
                                 style={{
                                     color: theme.palette.primary.main,
                                     textDecoration: 'none',
-                                    fontWeight:'700',
+                                    fontWeight: '700',
                                 }}
                             >
                                 <div style={{ display: 'flex', alignItems: 'center', textAlign: 'left' }}>
@@ -133,9 +181,44 @@ function MatchCalendar({ matchCalendar, matches }) {
                             </Link>
                         </Typography>
                     </Grid>
-                    <Grid item xs={12} md={1} alignItems="center">
-                        {matches[selectedGiornata] ? (<Typography variant="h5" component="h5">✅</Typography>) : (<Typography variant="h5" component="h5">🕐</Typography>)}
+                     :
+                        <Grid item md={4} alignItems="center" sx={{ padding: '10px' }}>
+                        <Typography variant="h6" component="h6" color={theme.palette.primary.main} sx={{ fontWeight: '600', display: 'flex', alignItems: 'center', justifyContent: 'flex-start', textTransform: 'uppercase' }}>
+                            <Link
+                                to={`/team/${match.awayTeam}`}
+                                style={{
+                                    color: theme.palette.primary.main,
+                                    textDecoration: 'none',
+                                    fontWeight: '700',
+                                }}
+                            >
+                                <div style={{ display: 'flex', alignItems: 'center', textAlign: 'left' }}>
+                                    <img src={teams.find(team => team.name === match.awayTeam)?.logo} alt={match.awayTeam} style={{ width: '50px', height: '50px', marginRight: '10px' }} /> {match.awayTeam}
+                                </div>
+                            </Link>
+                        </Typography>
                     </Grid>
+                    }
+                                        {isMobile ?
+                        <Grid item xs={2} alignItems="center" justifyContent="center" sx={{ padding: '10px' }}>
+                            <Typography variant="h5" component="h5" color={theme.palette.secondary.main} sx={{ fontWeight: '600', display: 'flex', justifyContent: 'center' }}>
+                                {matches[selectedGiornata] ? (
+                                    match.homeScore !== undefined && match.awayScore !== undefined ? (
+                                        <span>{match.awayScore}</span>
+                                    ) : (
+                                        ''
+                                    )
+                                ) : (
+                                    ''
+                                )}
+                            </Typography>
+                        </Grid>
+                        : ''}
+                        {isMobile ? '' :
+                        <Grid item xs={12} md={1} alignItems="center">
+                        {matches[selectedGiornata] ? (<Typography variant="h5" component="h5">✅</Typography>) : (<Typography variant="h5" component="h5">🕐</Typography>)}
+                    </Grid>}
+                    
                 </Grid>
             ))}
         </>

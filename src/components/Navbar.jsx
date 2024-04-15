@@ -115,9 +115,9 @@ export default function Navbar(props) {
                             </Grid>
                             <Grid item xs={4} sm={4} md={4} sx={{ justifyContent: "center", display: 'flex', alignItems: 'center', marginBottom:'-10px' }}>
                                 <img
-                                    src='/logo.jpg'
+                                    src='/logo.png'
                                     alt='Logo'
-                                    height={60}
+                                    height={70}
                                     style={{ padding: '7px' }}
                                 />
                             </Grid>

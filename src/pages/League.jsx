@@ -12,7 +12,7 @@ import ArrowOutwardOutlinedIcon from '@mui/icons-material/ArrowOutwardOutlined';
 import Calendar from '../components/Calendar';
 import LeagueNavigation from '../components/LeagueNavigation';
 import Leaderboard from '../components/Leaderboard';
-
+import LeagueAwards from '../components/LeagueAwards';
 
 
 export default function League() {
@@ -42,13 +42,13 @@ export default function League() {
                 <Box sx={{ padding: { xs: '160px 20px 40px 20px', md: '160px 20px 80px 20px' } }}>
                     <Grid container spacing={2} alignItems="center">
                         <Grid item xs={12} md={1}>
-                            <img src='/logo.jpg' alt="Logo League" style={{ width: 80 }} />
+                            <img src='/logo.png' alt="Logo League" style={{ width: 80 }} />
                         </Grid>
                         <Grid item xs={12} md={11}>
                             <Typography variant="h6" component="h6" color={theme.palette.text.secondary}>
                                 HAXZONE
                             </Typography>
-                            <Typography variant="h2" component="h2" color={theme.palette.text.third} sx={{ fontWeight: '600' }}>
+                            <Typography variant="h2" component="h2" color={theme.palette.text.secondary} sx={{ fontWeight: '600' }}>
                                 LEAGUE
                             </Typography>
                         </Grid>
@@ -70,7 +70,7 @@ export default function League() {
                 <Box sx={{ padding: '80px 20px' }}>
                 {activeComponent === 'calendar' && <Calendar />}
       {activeComponent === 'leaderboard' && <Leaderboard />}
-      {activeComponent === 'teams' && <Teams />}
+      {activeComponent === 'awards' && <LeagueAwards />}
       </Box>
             </Container>
         </>

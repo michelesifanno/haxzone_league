@@ -10,6 +10,7 @@ import PlayerList from '../components/PlayerList';
 import TeamStats from '../components/TeamStats';
 import ArrowOutwardOutlinedIcon from '@mui/icons-material/ArrowOutwardOutlined';
 import TeamCalendar from '../components/TeamCalendar';
+import TeamMatches from '../components/TeamMatches';
 
 
 export default function Team() {
@@ -77,8 +78,17 @@ export default function Team() {
                                 {team.name}
                             </Typography>
                             <br />
-                            <Typography variant="h6" component="h6" color={theme.palette.text.secondary} sx={{ fontWeight: '600', textTransform: 'uppercase' }}>
-                                🧢 {team.cap} | 🗓️ {team.foundation}
+                            <Typography variant="h6" component="h6">
+                            <Link
+                                                    to={`/player/${team.cap}`}
+                                                    style={{
+                                                        color: theme.palette.text.secondary,
+                                                        textDecoration: 'none',
+                                                        fontWeight:'600',
+                                                        textTransform:'uppercase'
+                                                    }}
+                                                >
+                                                    🧢 {team.cap}</Link> | 🗓️ {team.foundation}
                             </Typography>
                         </Grid>
                         <Grid item xs={12} md={4}>
@@ -112,7 +122,7 @@ export default function Team() {
             <Container maxWidth={false} sx={{
                 backgroundColor: '#fff',
             }}>
-                <Box sx={{ padding: { sx: '60px 0px', md: '60px 0px' } }}>
+                <Box sx={{ padding: '60px 0px' }}>
                     <Grid container>
                         <Grid xs={12} md={6} sx={{ padding: '20px' }}>
                             <Typography variant="h4" component="h4" color={theme.palette.primary.main} sx={{ fontWeight: '600' }}>
@@ -130,17 +140,17 @@ export default function Team() {
                         </Grid>
                         <Grid xs={12} md={6} sx={{ padding: '20px' }}>
                             <Typography variant="h4" component="h4" color={theme.palette.primary.main} sx={{ fontWeight: '600' }}>
-                                CALENDARIO
+                                PROSSIMI MATCH
                             </Typography>
                             <br />
                             <TeamCalendar name={name} />
                         </Grid>
                         <Grid xs={12} md={6} sx={{ padding: '20px' }}>
                             <Typography variant="h4" component="h4" color={theme.palette.primary.main} sx={{ fontWeight: '600' }}>
-                                RISULTATI
+                                ULTIMI MATCH
                             </Typography>
                             <br />
-                            <LeaderboardTeam teams={teams} name={name} />
+                            <TeamMatches name={name} />
                         </Grid>
                         <Grid xs={12} sx={{ padding: '20px' }}>
                             <Typography variant="h4" component="h4" color={theme.palette.primary.main} sx={{ fontWeight: '600' }}>

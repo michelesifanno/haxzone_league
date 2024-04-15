@@ -42,7 +42,7 @@ export default function Teams() {
                     <Typography variant="h6" component="h6" color={theme.palette.text.secondary}>
                         HAXZONE LEAGUE
                     </Typography>
-                    <Typography variant="h2" component="h2" color={theme.palette.text.third} sx={{ fontWeight: '600' }}>
+                    <Typography variant="h2" component="h2" color={theme.palette.text.secondary} sx={{ fontWeight: '600' }}>
                         TEAMS
                     </Typography>
                 </Box>

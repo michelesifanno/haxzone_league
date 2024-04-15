@@ -6,19 +6,19 @@ import { createTheme } from '@mui/material/styles';
 const theme = createTheme({
   palette: {
     primary: {
-      main: '#171d8d',
+      main: '#121212',
       contrastText: '#121212'
     },
     secondary: {
-      main: '#005bff',
+      main: '#ff4900',
     },
     third: {
-      main: '#00e8da',
+      main: '#ffd400',
     },
     text: {
         primary: '#121212', 
         secondary: '#fff', 
-        third: '#00e8da',
+        third: '#ffd400',
 },
 components: {
     MuiTypography: {

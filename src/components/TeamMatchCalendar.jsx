@@ -22,15 +22,16 @@ export default function TeamMatchCalendar({ calendar, name }) {
     ];
 
     // Estrai le partite future del calendario per il team selezionato
-
     const currentDate = new Date();
     const formattedCurrentDate = currentDate.toISOString().split('T')[0]; // Ottieni la data attuale nel formato 'YYYY-MM-DD'
 
     const futureMatches = Object.values(calendar)
-        .flat()
-        .filter(match => (match.homeTeam === name || match.awayTeam === name) && new Date(match.date) >= currentDate)
-        .slice(0, 5);
-        
+    .flatMap(matches => matches.filter(match => {
+        const [day, month, year] = match.date.split('-');
+        const matchDate = new Date(year, month - 1, day); // month - 1 perché il mese è zero-based
+        return (match.homeTeam === name || match.awayTeam === name) && matchDate > currentDate;
+    }))
+    .slice(0, 5);
 
     return (
         <>
@@ -54,7 +55,7 @@ export default function TeamMatchCalendar({ calendar, name }) {
                         {futureMatches.map((match) => (
                             <TableRow key={match.id}>
                                 <TableCell>
-                                    <Typography variant="body2" component="p" color={theme.palette.primary.main}>
+                                    <Typography variant="p" component="p" color={theme.palette.primary.main}>
                                         {match.homeTeam === name ? (
                                             <Typography variant="p" component="p" color={theme.palette.primary.main} sx={{ fontWeight: '600' }}>
                                                 <Link
@@ -65,7 +66,7 @@ export default function TeamMatchCalendar({ calendar, name }) {
                                                     }}
                                                 >
                                                     <div style={{ display: 'flex', alignItems: 'center' }}>
-                                                    <strong style={{marginRight:'10px', color:'secondary.main'}}>VS</strong>  <img src={teams.find(team => team.name === match.awayTeam)?.logo} alt={match.awayTeam} style={{ width: '30px', marginRight: '10px' }} />
+                                                        <strong style={{ marginRight: '10px', color: 'secondary.main' }}>VS</strong>  <img src={teams.find(team => team.name === match.awayTeam)?.logo} alt={match.awayTeam} style={{ width: '30px', marginRight: '10px' }} />
                                                         <span>{match.awayTeam}</span>
                                                     </div>
                                                 </Link>
@@ -80,7 +81,7 @@ export default function TeamMatchCalendar({ calendar, name }) {
                                                     }}
                                                 >
                                                     <div style={{ display: 'flex', alignItems: 'center' }}>
-                                                        <strong style={{marginRight:'10px', color:'secondary.main'}}>VS</strong> <img src={teams.find(team => team.name === match.homeTeam)?.logo} alt={match.homeTeam} style={{ width: '30px', marginRight: '10px' }} />
+                                                        <strong style={{ marginRight: '10px', color: 'secondary.main' }}>VS</strong> <img src={teams.find(team => team.name === match.homeTeam)?.logo} alt={match.homeTeam} style={{ width: '30px', marginRight: '10px' }} />
                                                         <span>{match.homeTeam}</span>
                                                     </div>
                                                 </Link>

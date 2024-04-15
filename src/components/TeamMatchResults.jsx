@@ -1,9 +1,10 @@
 import { useState, useEffect } from 'react';
 import { styled, useTheme } from '@mui/material/styles';
+import { Link } from 'react-router-dom';
 import { Typography, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper } from '@mui/material';
 
 
-export default function TeamMatchResults({ calendar, name }) {
+export default function TeamMatchResults({ matches, name }) {
 
     const theme = useTheme();
 
@@ -22,10 +23,17 @@ export default function TeamMatchResults({ calendar, name }) {
 
 
     // Estrai le partite future del calendario per il team selezionato
-    const futureMatches = Object.values(calendar)
-        .flat()
-        .filter(match => match.homeTeam === name || match.awayTeam === name)
-        .slice(0, 5); // Prendi solo le prossime 5 partite
+    const currentDate = new Date();
+    const formattedCurrentDate = currentDate.toISOString().split('T')[0]; // Ottieni la data attuale nel formato 'YYYY-MM-DD'
+
+    const futureMatches = Object.values(matches)
+        .flatMap(matches => matches.filter(match => {
+            const [day, month, year] = match.date.split('-');
+            const matchDate = new Date(year, month - 1, day); // month - 1 perché il mese è zero-based
+            return (match.homeTeam === name || match.awayTeam === name) && matchDate < currentDate;
+        }))
+        .slice(0, 5);
+
 
     return (
         <>
@@ -43,6 +51,11 @@ export default function TeamMatchResults({ calendar, name }) {
                                     Match
                                 </Typography>
                             </TableCell>
+                            <TableCell>
+                                <Typography variant="p" component="p" color={theme.palette.primary.main} sx={{ textTransform: 'uppercase', fontWeight: 'bold' }}>
+                                    Risultato
+                                </Typography>
+                            </TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
@@ -54,13 +67,52 @@ export default function TeamMatchResults({ calendar, name }) {
                                     </Typography>
                                 </TableCell>
                                 <TableCell>
-                                    <Typography variant="body2" component="p" color={theme.palette.primary.main}>
-                                        {match.homeTeam} <img src={teams.find(team => team.name === match.homeTeam)?.logo} alt={match.homeTeam} style={{ width: '50px', height: '50px', marginLeft: '10px' }} /> vs                                     <img src={teams.find(team => team.name === match.awayTeam)?.logo} alt={match.awayTeam} style={{ width: '50px', height: '50px', marginRight: '10px' }} /> {match.awayTeam}
+                                    <Typography variant="p" component="p">
+                                        {match.homeTeam === name ? (
+                                            <Typography variant="p" component="p" sx={{ fontWeight: '600' }}>
+                                                <Link
+                                                    to={`/team/${match.awayTeam}`}
+                                                    style={{
+                                                        textDecoration: 'none',
+                                                        color: match.homeScore > match.awayScore ? 'green' : match.awayScore > match.homeScore ? 'red' : match.homeScore === match.awayScore ? 'darkgrey' : '',
+                                                    }}
+                                                >
+                                                    <div style={{ display: 'flex', alignItems: 'center' }}>
+                                                        <strong style={{ marginRight: '10px' }}>VS</strong>
+                                                        <img src={teams.find(team => team.name === match.awayTeam)?.logo} alt={match.awayTeam} style={{ width: '30px', marginRight: '10px' }} />
+                                                        <span>{match.awayTeam}</span>
+                                                    </div>
+                                                </Link>
+                                            </Typography>
+                                        ) : (
+                                            <Typography variant="p" component="p" sx={{ fontWeight: '600'}}>
+                                                <Link
+                                                    to={`/team/${match.homeTeam}`}
+                                                    style={{
+                                                        textDecoration: 'none',
+                                                        color: match.homeScore > match.awayScore ? 'red' : match.awayScore > match.homeScore ? 'green' : match.homeScore === match.awayScore ? 'darkgrey' : '',
+                                                    }}
+                                                >
+                                                    <div style={{ display: 'flex', alignItems: 'center' }}>
+                                                        <strong style={{ marginRight: '10px' }}>VS</strong> <img src={teams.find(team => team.name === match.homeTeam)?.logo} alt={match.homeTeam} style={{ width: '30px', marginRight: '10px' }} />
+                                                        <span>{match.homeTeam}</span>
+                                                    </div>
+                                                </Link>
+                                            </Typography>
+                                        )}
                                     </Typography>
                                 </TableCell>
                                 <TableCell>
-                                    <Typography variant="body2" component="p" color={theme.palette.primary.main}>
+                                {match.homeTeam === name ? (
+                                <Typography variant="p" component="p" sx={{ fontWeight: '600', color: match.homeScore > match.awayScore ? 'green' : match.awayScore > match.homeScore ? 'red' : match.homeScore === match.awayScore ? 'darkgrey' : '' }}>
+                                        {match.homeScore} - {match.awayScore}
                                     </Typography>
+                                ) :
+                                (
+                                    <Typography variant="p" component="p" sx={{ fontWeight: '600', color: match.homeScore > match.awayScore ? 'red' : match.awayScore > match.homeScore ? 'green' : match.homeScore === match.awayScore ? 'darkgrey' : '' }}>
+                                    {match.homeScore} - {match.awayScore}
+                                </Typography>
+                                )}
                                 </TableCell>
                             </TableRow>
                         ))}

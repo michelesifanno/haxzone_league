@@ -36,7 +36,7 @@ import {
           element: <Player />
         },
         {
-          path: "league/*",
+          path: "/league",
           element: <League />
         }
           ]

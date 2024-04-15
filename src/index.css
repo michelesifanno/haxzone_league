@@ -15,13 +15,19 @@
   padding: 40px;
   border: 1px solid #f9f9f9;
 }
-
+.MuiButtonBase-root.MuiButton-root.MuiButton-contained.MuiButton-containedThird.MuiButton-sizeLarge.MuiButton-containedSizeLarge.MuiButton-colorThird.league-navigation.css-1oli0mj-MuiButtonBase-root-MuiButton-root {
+    color: #121212 !important;
+}
+.league-navigation {
+  color:#fff!important;
+  }
+  
 .highlighted-row {
-  background-color: #e9e9ff;
+  background-color: #fff3e9;
 }
 
 .matchGrid:hover {
-  background-color: #e9e9ff;
+  background-color: #fff3e9;
 }
 
 .MuiGrid-item {

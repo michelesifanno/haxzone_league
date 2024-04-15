@@ -67,48 +67,48 @@ export default function Leaderboard() {
                 <Table aria-label="leaderboard table">
                     <TableHead sx={{ backgroundColor: theme.palette.third.main }}>
                         <TableRow>
-                            <TableCell>
-                                <Typography variant="p" component="p" color={theme.palette.primary.main} sx={{ textTransform: 'uppercase', fontWeight: 'bold' }}>
-                                    Pos
+                            <TableCell sx={{padding: isMobile ? '20px 10px' : '20px'}}>
+                            <Typography variant={isMobile ? "caption" : "p"} sx={{ fontWeight: 'bold' }}>
+                                P
                                 </Typography>
                             </TableCell>
-                            <TableCell>
-                                <Typography variant="p" component="p" color={theme.palette.primary.main} sx={{ textTransform: 'uppercase', fontWeight: 'bold' }}>
-                                    Team
+                            <TableCell sx={{padding: isMobile ? '20px 10px' : '20px'}}>
+                            <Typography variant={isMobile ? "caption" : "p"} sx={{ fontWeight: 'bold' }}>
+                                    TEAM
                                 </Typography>
                             </TableCell>
-                            <TableCell>
-                                <Typography variant="p" component="p" color={theme.palette.primary.main} sx={{ textTransform: 'uppercase', fontWeight: 'bold' }}>
-                                    P
+                            <TableCell sx={{padding: isMobile ? '20px 10px' : '20px'}}>
+                            <Typography variant={isMobile ? "caption" : "p"} sx={{ fontWeight: 'bold' }}>
+                                    PT
                                 </Typography>
                             </TableCell>
-                            <TableCell>
-                                <Typography variant="p" component="p" color={theme.palette.primary.main} sx={{ textTransform: 'uppercase', fontWeight: 'bold' }}>
+                            <TableCell sx={{padding: isMobile ? '20px 10px' : '20px'}}>
+                            <Typography variant={isMobile ? "caption" : "p"} sx={{ fontWeight: 'bold' }}>
                                     G
                                 </Typography>
                             </TableCell>
-                            <TableCell>
-                                <Typography variant="p" component="p" color={theme.palette.primary.main} sx={{ textTransform: 'uppercase', fontWeight: 'bold' }}>
+                            <TableCell sx={{padding: isMobile ? '20px 10px' : '20px'}}>
+                            <Typography variant={isMobile ? "caption" : "p"} sx={{ fontWeight: 'bold' }}>
                                     V
                                 </Typography>
                             </TableCell>
-                            <TableCell>
-                                <Typography variant="p" component="p" color={theme.palette.primary.main} sx={{ textTransform: 'uppercase', fontWeight: 'bold' }}>
+                            <TableCell sx={{padding: isMobile ? '20px 10px' : '20px'}}>
+                            <Typography variant={isMobile ? "caption" : "p"} sx={{ fontWeight: 'bold' }}>
                                     N
                                 </Typography>
                             </TableCell>
-                            <TableCell>
-                                <Typography variant="p" component="p" color={theme.palette.primary.main} sx={{ textTransform: 'uppercase', fontWeight: 'bold' }}>
+                            <TableCell sx={{padding: isMobile ? '20px 10px' : '20px'}}>
+                            <Typography variant={isMobile ? "caption" : "p"} sx={{ fontWeight: 'bold' }}>
                                     S
                                 </Typography>
                             </TableCell>
-                            <TableCell>
-                                <Typography variant="p" component="p" color={theme.palette.primary.main} sx={{ textTransform: 'uppercase', fontWeight: 'bold' }}>
+                            <TableCell sx={{padding: isMobile ? '20px 10px' : '20px'}}>
+                            <Typography variant={isMobile ? "caption" : "p"} sx={{ fontWeight: 'bold' }}>
                                     GF
                                 </Typography>
                             </TableCell>
-                            <TableCell>
-                                <Typography variant="p" component="p" color={theme.palette.primary.main} sx={{ textTransform: 'uppercase', fontWeight: 'bold' }}>
+                            <TableCell sx={{padding: isMobile ? '20px 10px' : '20px'}}>
+                            <Typography variant={isMobile ? "caption" : "p"} sx={{ fontWeight: 'bold' }}>
                                     GS
                                 </Typography>
                             </TableCell>
@@ -117,12 +117,12 @@ export default function Leaderboard() {
                     <TableBody>
                         {leaderboard.map((team, index) => (
                             <TableRow key={team.id}>
-                                <TableCell>
+                            <TableCell sx={{padding: isMobile ? '20px 10px' : '20px'}}>
                                     <Typography variant={isMobile ? "p" : "h6" } color={theme.palette.primary.main} sx={{ fontWeight: '600' }}>
                                         {index + 1}
                                     </Typography>
                                 </TableCell>
-                                <TableCell>
+                                <TableCell sx={{padding: isMobile ? '20px 10px' : '20px'}}>
                                     <Typography variant={isMobile ? "p" : "h6" } color={theme.palette.primary.main} sx={{ fontWeight: '600' }}>
                                         <Link
                                             to={`/team/${team.teamName}`}
@@ -134,43 +134,43 @@ export default function Leaderboard() {
                                             }}
                                         >
                                             <div style={{ display: 'flex', alignItems: 'center' }}>
-                                                <img src={teams.find(t => t.name === team.teamName)?.logo} alt="Logo Team" style={{ width: 40, marginRight: 10 }} />
-                                                {team.teamName}
+                                               {isMobile ? <img src={teams.find(t => t.name === team.teamName)?.logo} alt="Logo Team" style={{ width: 30, marginRight:'5px' }} /> : <img src={teams.find(t => t.name === team.teamName)?.logo} alt="Logo Team" style={{ width: 40, marginRight: 10 }} />}
+                                               {isMobile ? (team.teamName.length > 3 ? team.teamName.substring(0, 3) + '.' : team.teamName) : team.teamName}
                                             </div>
                                         </Link>
                                     </Typography>
                                 </TableCell>
-                                <TableCell>
+                                <TableCell sx={{padding: isMobile ? '20px 10px' : '20px'}}>
                                     <Typography variant={isMobile ? "p" : "h6" } color={theme.palette.primary.main} sx={{ fontWeight: '600' }}>
                                         {team.points}
                                     </Typography>
                                 </TableCell>
-                                <TableCell>
+                                <TableCell sx={{padding: isMobile ? '20px 10px' : '20px'}}>
                                     <Typography variant={isMobile ? "p" : "h6" } color={theme.palette.primary.main} sx={{ fontWeight: '600' }}>
                                         {team.gamesPlayed}
                                     </Typography>
                                 </TableCell>
-                                <TableCell>
+                                <TableCell sx={{padding: isMobile ? '20px 10px' : '20px'}}>
                                     <Typography variant={isMobile ? "p" : "h6" } color={theme.palette.primary.main} sx={{ fontWeight: '600' }}>
                                         {team.wins}
                                     </Typography>
                                 </TableCell>
-                                <TableCell>
+                                <TableCell sx={{padding: isMobile ? '20px 10px' : '20px'}}>
                                     <Typography variant={isMobile ? "p" : "h6" } color={theme.palette.primary.main} sx={{ fontWeight: '600' }}>
                                         {team.draws}
                                     </Typography>
                                 </TableCell>
-                                <TableCell>
+                                <TableCell sx={{padding: isMobile ? '20px 10px' : '20px'}}>
                                     <Typography variant={isMobile ? "p" : "h6" } color={theme.palette.primary.main} sx={{ fontWeight: '600' }}>
                                         {team.losses}
                                     </Typography>
                                 </TableCell>
-                                <TableCell>
+                                <TableCell sx={{padding: isMobile ? '20px 10px' : '20px'}}>
                                     <Typography variant={isMobile ? "p" : "h6" } color={theme.palette.primary.main} sx={{ fontWeight: '600' }}>
                                         {team.goalsFor}
                                     </Typography>
                                 </TableCell>
-                                <TableCell>
+                                <TableCell sx={{padding: isMobile ? '20px 10px' : '20px'}}>
                                     <Typography variant={isMobile ? "p" : "h6" } color={theme.palette.primary.main} sx={{ fontWeight: '600' }}>
                                         {team.goalsAgainst}
                                     </Typography>

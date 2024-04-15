@@ -120,7 +120,7 @@ const selectedTeam = player.teamName;
                             <Typography variant="h5" component="h5" color={theme.palette.text.secondary}>
                                 {player.role}
                             </Typography>
-                            <Typography variant="h2" component="h2" color={theme.palette.text.third} sx={{ fontWeight: '600' }}>
+                            <Typography variant="h2" component="h2" color={theme.palette.text.secondary} sx={{ fontWeight: '600' }}>
                                 {player.name}
                             </Typography>
                         </Grid>

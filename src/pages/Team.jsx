@@ -176,10 +176,11 @@ export default function Team() {
                         Clicca su "Scheda Team" per scoprire di più.
                     </Typography>
                     <br />
+                    
                     <Grid container spacing={2} justifyContent="flex-start" alignItems="left" sx={{ paddingTop: '20px' }}>
-                        {filteredTeams.map(team => (
+                        {filteredTeams.slice(0, 6).map(team => (
                             <Grid item xs={12} md={4} alignItems="left" key={team.id}>
-                                <Card sx={{ backgroundColor: '#fff', border: '5px solid #171d8d', padding: '30px' }}>
+                                <Card sx={{ backgroundColor: '#fff', border: '5px solid #000', padding: '30px' }}>
                                     <CardContent sx={{ padding: '0px' }}>
                                         <img src={team.logo} alt="Logo Team" style={{ width: 80 }} />
                                         <br />
@@ -203,6 +204,19 @@ export default function Team() {
                             </Grid>
                         ))}
                     </Grid>
+                    <Grid item xs={12} justifyContent="flex-end">
+                        <Button
+                                            size="large"
+                                            variant="contained"
+                                            to='/teams'
+                                            endIcon={<ArrowOutwardOutlinedIcon />}
+                                            component={Link}
+                                            sx={{ bgcolor: theme.palette.secondary.main, color: '#fff', padding:'16px 32px' }}
+                                            className='AllTeamsButton'
+                                        >
+                                            Tutti i Team
+                                        </Button>
+                            </Grid>
                 </Box>
             </Container>
         </>

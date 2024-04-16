@@ -125,6 +125,8 @@ export default function Navbar(props) {
                                 {isMobile ?
                                     <Button
                                         size="medium"
+                                        to='https://discord.gg/b4QM4K3t'
+                                        target='_blank'
                                         variant="contained"
                                         endIcon={<ArrowOutwardOutlinedIcon />}
                                         sx={{ bgcolor: theme.palette.secondary.main, color: theme.palette.text.secondary }}
@@ -134,6 +136,8 @@ export default function Navbar(props) {
                                     :
                                     <Button
                                         size="large"
+                                        to='https://discord.gg/b4QM4K3t'
+                                        target='_blank'
                                         variant="contained"
                                         endIcon={<ArrowOutwardOutlinedIcon />}
                                         sx={{ bgcolor: theme.palette.secondary.main, color: theme.palette.text.secondary }}

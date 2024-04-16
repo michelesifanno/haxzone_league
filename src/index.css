@@ -18,6 +18,10 @@
 .MuiButtonBase-root.MuiButton-root.MuiButton-contained.MuiButton-containedThird.MuiButton-sizeLarge.MuiButton-containedSizeLarge.MuiButton-colorThird.league-navigation.css-1oli0mj-MuiButtonBase-root-MuiButton-root {
     color: #121212 !important;
 }
+.MuiButtonBase-root.MuiButton-root.MuiButton-contained.MuiButton-containedPrimary.MuiButton-sizeLarge.MuiButton-containedSizeLarge.MuiButton-colorPrimary.AllTeamsButton:hover {
+  background-color: #fff!important;
+  color: #121212!important;
+}
 
 .league-navigation {
   color:#fff!important;

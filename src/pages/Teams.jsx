@@ -63,7 +63,7 @@ export default function Teams() {
                     <Divider />
                     <br />
                     <Grid container spacing={2}>
-                        {teams.map((team) => (
+                        {teams.map((team, index) => (
                             <Grid item key={team.id} xs={12} md={3}>
                                 <Link
                                     to={`/team/${team.name}`}

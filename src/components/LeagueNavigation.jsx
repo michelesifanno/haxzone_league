@@ -3,11 +3,15 @@
 import React from 'react';
 import { Button } from '@mui/material';
 import { styled, useTheme } from '@mui/material/styles';
+import useMediaQuery from '@mui/material/useMediaQuery';
+
 
 
 const LeagueNavigation = ({ activeComponent, setActiveComponent }) => {
 
   const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+
 
   return (
     <div>
@@ -17,7 +21,8 @@ const LeagueNavigation = ({ activeComponent, setActiveComponent }) => {
         color="secondary"
         onClick={() => setActiveComponent('calendar')}
         className='league-navigation'
-      >
+        sx={{minWidth: isMobile ? '100%' : 'auto'}}
+        >
         Calendario & Risultati
       </Button>
       <Button
@@ -26,6 +31,7 @@ const LeagueNavigation = ({ activeComponent, setActiveComponent }) => {
         color="secondary"
         onClick={() => setActiveComponent('leaderboard')}
         className='league-navigation'
+        sx={{minWidth: isMobile ? '100%' : 'auto'}}
       >
         Classifica
       </Button>
@@ -35,6 +41,7 @@ const LeagueNavigation = ({ activeComponent, setActiveComponent }) => {
         color="secondary"
         onClick={() => setActiveComponent('awards')}
         className='league-navigation'
+        sx={{minWidth: isMobile ? '100%' : 'auto'}}
       >
         Awards
       </Button>

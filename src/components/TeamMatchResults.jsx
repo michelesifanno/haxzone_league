@@ -56,7 +56,7 @@ export default function TeamMatchResults({ matches, name }) {
                             </TableCell>
                             <TableCell>
                                 <Typography variant="p" component="p" color={theme.palette.primary.main} sx={{ textTransform: 'uppercase', fontWeight: 'bold' }}>
-                                    Risultato
+                                    Res
                                 </Typography>
                             </TableCell>
                         </TableRow>
@@ -83,7 +83,7 @@ export default function TeamMatchResults({ matches, name }) {
                                                     <div style={{ display: 'flex', alignItems: 'center' }}>
                                                         <strong style={{ marginRight: '10px' }}>VS</strong>
                                                         <img src={teams.find(team => team.name === match.awayTeam)?.logo} alt={match.awayTeam} style={{ width: '30px', marginRight: '10px' }} />
-                                                        <span>{match.awayTeam}</span>
+                                                        <strong>{match.awayTeam}</strong>
                                                     </div>
                                                 </Link>
                                             </Typography>
@@ -98,7 +98,7 @@ export default function TeamMatchResults({ matches, name }) {
                                                 >
                                                     <div style={{ display: 'flex', alignItems: 'center' }}>
                                                         <strong style={{ marginRight: '10px' }}>VS</strong> <img src={teams.find(team => team.name === match.homeTeam)?.logo} alt={match.homeTeam} style={{ width: '30px', marginRight: '10px' }} />
-                                                        <span>{match.homeTeam}</span>
+                                                        <strong>{match.homeTeam}</strong>
                                                     </div>
                                                 </Link>
                                             </Typography>

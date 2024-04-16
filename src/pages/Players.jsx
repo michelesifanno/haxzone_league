@@ -71,18 +71,18 @@ export default function Players() {
                                         </TableCell>
                                     )}
                                                                             <TableCell>
-                                            <Typography variant="p" component="p" color={theme.palette.primary.main} sx={{ textTransform: 'uppercase', fontWeight: 'bold' }}>
+                                                                            <Typography variant={isMobile ? "caption" : "p"} sx={{ fontWeight: 'bold' }}>
                                                 PLAYER
                                             </Typography>
                                         </TableCell>
                                         <TableCell>
-                                            <Typography variant="p" component="p" color={theme.palette.primary.main} sx={{ textTransform: 'uppercase', fontWeight: 'bold' }}>
+                                        <Typography variant={isMobile ? "caption" : "p"} sx={{ fontWeight: 'bold' }}>
                                                 TEAM
                                             </Typography>
                                         </TableCell>
                                         <TableCell>
                                             <Typography variant="p" component="p" color={theme.palette.primary.main} sx={{ textTransform: 'uppercase', fontWeight: 'bold' }}>
-                                                AVATAR
+                                                ROLE
                                             </Typography>
                                         </TableCell>
 
@@ -97,7 +97,7 @@ export default function Players() {
                                             </Typography>
                                         </TableCell>)}
                                         <TableCell>
-                                            <Typography variant="h6" component="h6" color={theme.palette.primary.main} sx={{ fontWeight: '600' }}>
+                                        <Typography variant={isMobile ? "p" : "h6" } color={theme.palette.primary.main} sx={{ fontWeight: '600' }}>
                                                 <Link
                                                     to={`/player/${player.name}`}
                                                     style={{
@@ -108,15 +108,15 @@ export default function Players() {
                                             </Typography>
                                         </TableCell>
                                         <TableCell>
-                                            <Typography variant="h6" component="h6" color={theme.palette.primary.main} sx={{ fontWeight: '600' }}>
-                                                <div style={{ display: 'flex', alignItems: 'center' }}>
+                                        <Typography variant={isMobile ? "p" : "h6" } color={theme.palette.primary.main} sx={{ fontWeight: '600' }}>
+                                                <div style={{ display: 'flex', alignItems: 'center', textTransform: 'uppercase' }}>
                                                     <img src={player.team.logo} alt="Logo Team" style={{ width: 30, marginRight: 10 }} />
-                                                    {player.team.name}
+                                                    {isMobile ? (player.team.name.length > 3 ? player.team.name.substring(0, 3) + '.' : player.team.name) : player.team.name}
                                                 </div>
                                             </Typography>
                                         </TableCell>
                                         <TableCell>
-                                            <Typography variant="h6" component="h6" color={theme.palette.primary.main} sx={{ fontWeight: '600' }}>
+                                        <Typography variant={isMobile ? "p" : "h6" } color={theme.palette.primary.main} sx={{ fontWeight: '600' }}>
                                                 {player.role}
                                             </Typography>
                                         </TableCell>

@@ -81,7 +81,7 @@ export default function Players() {
                                             </Typography>
                                         </TableCell>
                                         <TableCell>
-                                            <Typography variant="p" component="p" color={theme.palette.primary.main} sx={{ textTransform: 'uppercase', fontWeight: 'bold' }}>
+                                        <Typography variant={isMobile ? "caption" : "p"} sx={{ fontWeight: 'bold' }}>
                                                 ROLE
                                             </Typography>
                                         </TableCell>
@@ -97,7 +97,7 @@ export default function Players() {
                                             </Typography>
                                         </TableCell>)}
                                         <TableCell>
-                                        <Typography variant={isMobile ? "p" : "h6" } color={theme.palette.primary.main} sx={{ fontWeight: '600' }}>
+                                        <Typography variant="h6" color={theme.palette.primary.main} sx={{ fontWeight: '600' }}>
                                                 <Link
                                                     to={`/player/${player.name}`}
                                                     style={{

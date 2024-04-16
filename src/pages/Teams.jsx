@@ -62,9 +62,9 @@ export default function Teams() {
                     <br />
                     <Divider />
                     <br />
-                    <Grid container spacing={5}>
+                    <Grid container spacing={2}>
                         {teams.map((team) => (
-                            <Grid item key={team.id} xs={12} sm={6} md={3}>
+                            <Grid item key={team.id} xs={12} md={3}>
                                 <Link
                                     to={`/team/${team.name}`}
                                     style={{
@@ -72,21 +72,13 @@ export default function Teams() {
                                         textDecoration: 'none',
                                     }}
                                 >
-                                    <Card>
+                                    <Card sx={{ backgroundColor: '#f9f9f9' }}>
                                         <CardActionArea component={Link} to={`/team/${team.name}`}>
-                                            <div style={{ padding: '20px' }}>
-                                                <CardMedia
-                                                    component="img"
-                                                    height="auto"
-                                                    weight="100%"
-                                                    image={team.logo}
-                                                    alt="Logo"
-                                                />
-                                            </div>
-                                            <CardContent>
+                                            <CardContent sx={{padding:'0px 20px 40px 20px', textAlign:'center'}}>
                                                 <br />
-                                                <Typography variant="h5" component="h5" gutterBottom color={theme.palette.primary.main} sx={{ textTransform: 'uppercase' }}>
-                                                    <b>{team.name} {team.colors.split(', ').map((color, index) => (
+                                                <img src={team.logo} alt='logo team' width="250" />
+                                                <Typography variant="h5" component="h5" gutterBottom color={theme.palette.primary.main} sx={{ textTransform: 'uppercase', paddingTop:'20px'}}>
+                                                    {team.name} {team.colors.split(', ').map((color, index) => (
                                                         <span
                                                             key={index}
                                                             style={{
@@ -96,21 +88,10 @@ export default function Teams() {
                                                                 backgroundColor: color,
                                                                 borderRadius: '50%',
                                                                 marginRight: '5px',
+                                                                border: '1px solid #000'
                                                             }}
                                                         ></span>
-                                                    ))}</b>
-                                                </Typography>
-                                                <br />
-                                                <Typography variant="body2" gutterBottom color={theme.palette.text.primary} sx={{ fontSize: '18px' }}>
-                                                    <Box sx={{ display: 'flex', alignItems: 'center', padding: '10px' }}>
-                                                        🧢 <b style={{ color: theme.palette.secondary.main }}>{team.cap}</b>
-                                                    </Box>
-                                                </Typography>
-                                                <Divider />
-                                                <Typography variant="body2" gutterBottom color={theme.palette.text.primary} sx={{ fontSize: '14px', color: theme.palette.secondary.main }}>
-                                                    <Box sx={{ display: 'flex', alignItems: 'center', padding: '10px' }}>
-                                                        {team.players}
-                                                    </Box>
+                                                    ))}
                                                 </Typography>
                                             </CardContent>
                                         </CardActionArea>

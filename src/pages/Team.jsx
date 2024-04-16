@@ -78,7 +78,7 @@ export default function Team() {
                                 {team.name}
                             </Typography>
                             <br />
-                            <Typography variant="h6" component="h6">
+                            <Typography variant="h6" component="h6" sx={{color: theme.palette.text.secondary}}>
                             <Link
                                                     to={`/player/${team.cap}`}
                                                     style={{
@@ -86,6 +86,7 @@ export default function Team() {
                                                         textDecoration: 'none',
                                                         fontWeight:'600',
                                                         textTransform:'uppercase'
+            
                                                     }}
                                                 >
                                                     🧢 {team.cap}</Link> | 🗓️ {team.foundation}

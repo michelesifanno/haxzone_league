@@ -27,7 +27,7 @@ export default function League() {
     const [activeComponent, setActiveComponent] = useState('calendar');
 
     const handleMenuItemClick = (menuItem) => {
-      setActiveMenuItem(menuItem);
+        setActiveMenuItem(menuItem);
     };
 
     return (
@@ -58,20 +58,22 @@ export default function League() {
             <Container maxWidth={false} sx={{
                 backgroundColor: 'primary.main',
             }}>
-                <Box sx={{ padding: '20px' }}>
-                      <LeagueNavigation activeComponent={activeComponent} setActiveComponent={setActiveComponent} />
+                <Box sx={{
+                    padding: '20px',
+                }}>
+                    <LeagueNavigation activeComponent={activeComponent} setActiveComponent={setActiveComponent} />
                 </Box>
             </Container>
 
             <Container maxWidth={false} sx={{
                 backgroundColor: '#fff',
-                minHeight: '100vh'
+                minHeight: '100vh',
             }}>
-                <Box sx={{ padding: '80px 20px' }}>
-                {activeComponent === 'calendar' && <Calendar />}
-      {activeComponent === 'leaderboard' && <Leaderboard />}
-      {activeComponent === 'awards' && <LeagueAwards />}
-      </Box>
+                <Box sx={{ padding: '80px 20px', whiteSpace: 'wrap' }}>
+                    {activeComponent === 'calendar' && <Calendar />}
+                    {activeComponent === 'leaderboard' && <Leaderboard />}
+                    {activeComponent === 'awards' && <LeagueAwards />}
+                </Box>
             </Container>
         </>
     );

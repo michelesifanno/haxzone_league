@@ -2,11 +2,14 @@ import { useState, useEffect } from 'react';
 import { styled, useTheme } from '@mui/material/styles';
 import { Link } from 'react-router-dom';
 import { Typography, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper } from '@mui/material';
+import useMediaQuery from '@mui/material/useMediaQuery';
 
 
 export default function TeamMatchResults({ matches, name }) {
 
     const theme = useTheme();
+
+    const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
     const teams = [
         { id: 1, logo: '/wolves.png', name: 'Wild Wolves', cap: 'Prox', colors: 'blue, grey', stadium: '/stadium.png', stadiumName: 'Hax Stadium', foundation: '2024' },
@@ -41,11 +44,11 @@ export default function TeamMatchResults({ matches, name }) {
                 <Table aria-label="upcoming matches table">
                     <TableHead sx={{ backgroundColor: theme.palette.third.main }}>
                         <TableRow>
-                            <TableCell>
+                            {isMobile ? '' : (<TableCell>
                                 <Typography variant="p" component="p" color={theme.palette.primary.main} sx={{ textTransform: 'uppercase', fontWeight: 'bold' }}>
                                     Data
                                 </Typography>
-                            </TableCell>
+                            </TableCell>)}
                             <TableCell>
                                 <Typography variant="p" component="p" color={theme.palette.primary.main} sx={{ textTransform: 'uppercase', fontWeight: 'bold' }}>
                                     Match
@@ -61,11 +64,11 @@ export default function TeamMatchResults({ matches, name }) {
                     <TableBody>
                         {futureMatches.map((match) => (
                             <TableRow key={match.id}>
-                                <TableCell>
-                                    <Typography variant="body2" component="p" color={theme.palette.primary.main}>
+                                {isMobile ? '' : (<TableCell>
+                                    <Typography variant="p" component="p" color={theme.palette.primary.main}>
                                         {match.date}
                                     </Typography>
-                                </TableCell>
+                                </TableCell>)}
                                 <TableCell>
                                     <Typography variant="p" component="p">
                                         {match.homeTeam === name ? (

@@ -4,6 +4,7 @@ import Container from '@mui/material/Container';
 import { styled, useTheme } from '@mui/material/styles';
 import { Link } from 'react-router-dom';
 import { Typography, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper } from '@mui/material';
+import useMediaQuery from '@mui/material/useMediaQuery';
 
 
 
@@ -22,7 +23,10 @@ export default function Players() {
         { id: 3, avatar: '🥔', name: 'Cheneso', team: { name: 'Potatoes FC', logo: '/potatoes.png' }, role: 'ST' },
     ];
 
+    const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+
     const headerRow = ['Avatar', 'Player', 'Team', 'Ruolo'];
+    const headerMobiRow = ['Player', 'Team', 'Ruolo'];
 
     return (
         <>
@@ -59,23 +63,39 @@ export default function Players() {
                         <Table aria-label="players table">
                             <TableHead sx={{ backgroundColor: theme.palette.third.main }}>
                                 <TableRow>
-                                    {headerRow.map((row) => (
+                                    {isMobile ? '' : (
                                         <TableCell>
                                             <Typography variant="p" component="p" color={theme.palette.primary.main} sx={{ textTransform: 'uppercase', fontWeight: 'bold' }}>
-                                                {row}
+                                                AVATAR
                                             </Typography>
                                         </TableCell>
-                                    ))}
+                                    )}
+                                                                            <TableCell>
+                                            <Typography variant="p" component="p" color={theme.palette.primary.main} sx={{ textTransform: 'uppercase', fontWeight: 'bold' }}>
+                                                PLAYER
+                                            </Typography>
+                                        </TableCell>
+                                        <TableCell>
+                                            <Typography variant="p" component="p" color={theme.palette.primary.main} sx={{ textTransform: 'uppercase', fontWeight: 'bold' }}>
+                                                TEAM
+                                            </Typography>
+                                        </TableCell>
+                                        <TableCell>
+                                            <Typography variant="p" component="p" color={theme.palette.primary.main} sx={{ textTransform: 'uppercase', fontWeight: 'bold' }}>
+                                                AVATAR
+                                            </Typography>
+                                        </TableCell>
+
                                 </TableRow>
                             </TableHead>
                             <TableBody>
                                 {players.map((player) => (
                                     <TableRow key={player.id}>
-                                        <TableCell component="th" scope="row">
+                                     {isMobile ? '' : (<TableCell component="th" scope="row">
                                             <Typography variant="h6" component="h6" color={theme.palette.primary.main} sx={{ fontWeight: '600' }}>
                                                 {player.avatar}
                                             </Typography>
-                                        </TableCell>
+                                        </TableCell>)}
                                         <TableCell>
                                             <Typography variant="h6" component="h6" color={theme.palette.primary.main} sx={{ fontWeight: '600' }}>
                                                 <Link

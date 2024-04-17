@@ -102,7 +102,7 @@ export default function Navbar(props) {
                 <AppBar open={open}>
                     <Toolbar>
                         <Grid container spacing={2}>
-                            <Grid item xs={4} sm={4} md={4} sx={{ justifyContent: "flex-start", display: 'flex', alignItems: 'center', marginBottom:'-10px' }}>
+                            <Grid item xs={4} sm={4} md={4} sx={{ justifyContent: "flex-start", display: 'flex', alignItems: 'center', marginBottom: '-10px' }}>
                                 <IconButton
                                     color="inherit"
                                     aria-label="open drawer"
@@ -113,7 +113,7 @@ export default function Navbar(props) {
                                     <MenuIcon sx={{ fontSize: '36px', color: '#fff' }} />
                                 </IconButton>
                             </Grid>
-                            <Grid item xs={4} sm={4} md={4} sx={{ justifyContent: "center", display: 'flex', alignItems: 'center', marginBottom:'-10px' }}>
+                            <Grid item xs={4} sm={4} md={4} sx={{ justifyContent: "center", display: 'flex', alignItems: 'center', marginBottom: '-10px' }}>
                                 <img
                                     src='/logo.png'
                                     alt='Logo'
@@ -121,7 +121,7 @@ export default function Navbar(props) {
                                     style={{ padding: '7px' }}
                                 />
                             </Grid>
-                            <Grid item xs={4} sm={4} md={4} sx={{ justifyContent: "flex-end", display: 'flex', alignItems: 'center', marginBottom:'-10px' }}>
+                            <Grid item xs={4} sm={4} md={4} sx={{ justifyContent: "flex-end", display: 'flex', alignItems: 'center', marginBottom: '-10px' }}>
                                 {isMobile ?
                                     <Button
                                         size="medium"
@@ -175,6 +175,18 @@ export default function Navbar(props) {
                     </IconButton>
                 </DrawerHeader>
                 <List>
+                    <ListItem disablePadding sx={{ my: 2 }} onClick={handleItemClick}>
+                        <Link to={'/'} style={{ textDecoration: 'none' }}>
+                            <Typography variant="h4" component="h4" sx={{
+                                color: '#fff', fontWeight: '600', textTransform: 'uppercase',
+                                '&:hover': {
+                                    color: theme.palette.text.third,
+                                },
+                            }}>
+                                Home
+                            </Typography>
+                        </Link>
+                    </ListItem>
                     {['League', 'Teams', 'Players', 'Stats', 'Valori', 'Calciomercato', 'Regolamento'].map((text) => (
                         <ListItem key={text} disablePadding sx={{ my: 2 }} onClick={handleItemClick}>
                             <Link to={`/${text.toLowerCase()}`} style={{ textDecoration: 'none' }}>

@@ -11,6 +11,7 @@ import {
   import Stats from "../pages/Stats";
   import Calciomercato from "../pages/Calciomercato";
   import Regolamento from "../pages/Regolamento";
+  import Homepage from "../pages/Homepage";
 
   export const router = createBrowserRouter([
     {
@@ -19,8 +20,9 @@ import {
       children: [
         {
           path: "/",
-          element: <Root />
+          element: <Homepage />
         },
+
         {
           path:"/teams",
           element: <Teams />

@@ -15,6 +15,16 @@
   padding: 40px;
   border: 1px solid #f9f9f9;
 }
+.bgvideo-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100vw;
+  height: 56.25vw;
+  pointer-events: none;
+}
+
 .MuiButtonBase-root.MuiButton-root.MuiButton-contained.MuiButton-containedThird.MuiButton-sizeLarge.MuiButton-containedSizeLarge.MuiButton-colorThird.league-navigation.css-1oli0mj-MuiButtonBase-root-MuiButton-root {
     color: #121212 !important;
 }

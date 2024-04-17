@@ -41,7 +41,7 @@ export default function Regolamento() {
                                 HAXZONE LEAGUE
                             </Typography>
                             <Typography variant="h2" component="h2" color={theme.palette.text.secondary} sx={{ fontWeight: '600' }}>
-                                REGOLAMENTO
+                                RULES
                             </Typography>
                         </Grid>
                     </Grid>

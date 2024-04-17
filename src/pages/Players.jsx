@@ -12,9 +12,9 @@ export default function Players() {
 
     useEffect(() => {
         window.scrollTo(0, 0);
-    }, []); 
+    }, []);
 
-    
+
     const theme = useTheme();
 
     const players = [
@@ -38,7 +38,7 @@ export default function Players() {
                 marginTop: '-80px',
             }}>
                 <Box sx={{ padding: { xs: '160px 20px 40px 20px', md: '160px 20px 80px 20px' } }}>
-                <Typography variant="h6" component="h6" color={theme.palette.text.secondary}>
+                    <Typography variant="h6" component="h6" color={theme.palette.text.secondary}>
                         HAXZONE LEAGUE
                     </Typography>
                     <Typography variant="h2" component="h2" color={theme.palette.text.secondary} sx={{ fontWeight: '600' }}>
@@ -70,34 +70,34 @@ export default function Players() {
                                             </Typography>
                                         </TableCell>
                                     )}
-                                                                            <TableCell>
-                                                                            <Typography variant={isMobile ? "caption" : "p"} sx={{ fontWeight: 'bold' }}>
-                                                PLAYER
-                                            </Typography>
-                                        </TableCell>
-                                        <TableCell>
+                                    <TableCell>
                                         <Typography variant={isMobile ? "caption" : "p"} sx={{ fontWeight: 'bold' }}>
-                                                TEAM
-                                            </Typography>
-                                        </TableCell>
-                                        <TableCell>
+                                            PLAYER
+                                        </Typography>
+                                    </TableCell>
+                                    <TableCell>
                                         <Typography variant={isMobile ? "caption" : "p"} sx={{ fontWeight: 'bold' }}>
-                                                ROLE
-                                            </Typography>
-                                        </TableCell>
+                                            TEAM
+                                        </Typography>
+                                    </TableCell>
+                                    <TableCell>
+                                        <Typography variant={isMobile ? "caption" : "p"} sx={{ fontWeight: 'bold' }}>
+                                            ROLE
+                                        </Typography>
+                                    </TableCell>
 
                                 </TableRow>
                             </TableHead>
                             <TableBody>
                                 {players.map((player) => (
                                     <TableRow key={player.id}>
-                                     {isMobile ? '' : (<TableCell component="th" scope="row">
+                                        {isMobile ? '' : (<TableCell component="th" scope="row">
                                             <Typography variant="h6" component="h6" color={theme.palette.primary.main} sx={{ fontWeight: '600' }}>
                                                 {player.avatar}
                                             </Typography>
                                         </TableCell>)}
                                         <TableCell>
-                                        <Typography variant="h6" color={theme.palette.primary.main} sx={{ fontWeight: '600' }}>
+                                            <Typography variant="h6" color={theme.palette.primary.main} sx={{ fontWeight: '600' }}>
                                                 <Link
                                                     to={`/player/${player.name}`}
                                                     style={{
@@ -108,7 +108,7 @@ export default function Players() {
                                             </Typography>
                                         </TableCell>
                                         <TableCell>
-                                        <Typography variant={isMobile ? "p" : "h6" } color={theme.palette.primary.main} sx={{ fontWeight: '600' }}>
+                                            <Typography variant={isMobile ? "p" : "h6"} color={theme.palette.primary.main} sx={{ fontWeight: '600' }}>
                                                 <div style={{ display: 'flex', alignItems: 'center', textTransform: 'uppercase' }}>
                                                     <img src={player.team.logo} alt="Logo Team" style={{ width: 30, marginRight: 10 }} />
                                                     {isMobile ? (player.team.name.length > 3 ? player.team.name.substring(0, 3) + '.' : player.team.name) : player.team.name}
@@ -116,7 +116,7 @@ export default function Players() {
                                             </Typography>
                                         </TableCell>
                                         <TableCell>
-                                        <Typography variant={isMobile ? "p" : "h6" } color={theme.palette.primary.main} sx={{ fontWeight: '600' }}>
+                                            <Typography variant={isMobile ? "p" : "h6"} color={theme.palette.primary.main} sx={{ fontWeight: '600' }}>
                                                 {player.role}
                                             </Typography>
                                         </TableCell>

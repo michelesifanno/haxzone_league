@@ -1,8 +1,7 @@
 import { useEffect } from 'react';
 import { styled, useTheme } from '@mui/material/styles';
 import { Link } from 'react-router-dom';
-import { Container, Box, Card, CardActionArea, CardContent, CardMedia, Grid, Typography, Divider } from '@mui/material';
-import Calendar from '../components/Calendar';
+import { Container, Box, Grid, Typography, Divider } from '@mui/material';
 
 const teams = [
     { id: 1, logo: '/wolves.png', name: 'Wild Wolves', cap: 'Prox', colors: 'blue, grey', stadium: '/stadium.png', stadiumName: 'Hax Stadium', foundation: '2024' },
@@ -64,7 +63,7 @@ export default function Teams() {
                     <br />
                     <Grid container spacing={2}>
                         {teams.map((team, index) => (
-                            <Grid item key={team.id} xs={12} md={3}>
+                            <Grid item key={team.id} xs={12} md={3} className='teamsGrid'>
                                 <Link
                                     to={`/team/${team.name}`}
                                     style={{
@@ -72,10 +71,6 @@ export default function Teams() {
                                         textDecoration: 'none',
                                     }}
                                 >
-                                    <Card sx={{ backgroundColor: '#f9f9f9' }}>
-                                        <CardActionArea component={Link} to={`/team/${team.name}`}>
-                                            <CardContent sx={{padding:'0px 20px 40px 20px', textAlign:'center'}}>
-                                                <br />
                                                 <img src={team.logo} alt='logo team' width="250" />
                                                 <Typography variant="h5" component="h5" gutterBottom color={theme.palette.primary.main} sx={{ textTransform: 'uppercase', paddingTop:'20px'}}>
                                                     {team.name} {team.colors.split(', ').map((color, index) => (
@@ -93,9 +88,6 @@ export default function Teams() {
                                                         ></span>
                                                     ))}
                                                 </Typography>
-                                            </CardContent>
-                                        </CardActionArea>
-                                    </Card>
                                 </Link>
                             </Grid>
                         ))}

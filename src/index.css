@@ -27,6 +27,14 @@
   color:#fff!important;
   }
   
+  .teamsGrid {
+    background-color: #fff3e9;
+    border: 5px solid #fff;
+    text-align: center;
+    padding: 40px !important;
+    border-radius: 15px !important;
+  }
+  
 .highlighted-row {
   background-color: #fff3e9;
 }

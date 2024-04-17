@@ -150,9 +150,9 @@ export default function LeagueAwards() {
                     </Typography>
                 </Grid>
             </Grid>
-            <Grid container spacing={2} justifyContent="flex-start" alignItems="left" sx={{ paddingTop: '40px' }}>
-                <Grid xs={12} md={4} alignItems="left" className='statsGrid'>
-                    <Typography variant="h3" component="h3" color="secondary.main" className="textStats" sx={{ paddingBottom: '10px' }}>
+            <Grid container spacing={2} justifyContent="flex-start" alignItems="center" className='matchGrid' sx={{ backgroundColor: '#fbfbfd', padding: '10px', border: '1px solid #eee', margin: '20px 0px' }}>
+                <Grid xs={12} md={4} alignItems="center"sx={{padding:'20px'}}>
+                    <Typography variant="h3" component="h3" color="secondary.main">
                         <Link
                             to={`/team/${bestTeamData.teamName}`}
                             style={{
@@ -163,11 +163,15 @@ export default function LeagueAwards() {
                             <img src={bestTeamLogo} alt="Logo Team" style={{ width: 200 }} />
                             </Link>
                     </Typography>
+                    </Grid>
+                    <Grid xs={12} md={8} alignItems="center"sx={{padding:'20px'}}>
                     <Typography variant="h5" component="h5" color="primary.main" className="textStats">
                     🏆 MIGLIOR TEAM
                     </Typography>
+                    </Grid>
                 </Grid>
-                <Grid xs={12} md={4} alignItems="left" className='statsGrid'>
+                <Grid container spacing={2} justifyContent="flex-start" alignItems="center" className='matchGrid' sx={{ backgroundColor: '#fbfbfd', padding: '10px', border: '1px solid #eee', margin: '20px 0px' }}>
+                <Grid xs={12} md={4} alignItems="center"sx={{padding:'20px'}}>
                     <Typography variant="h3" component="h3" color="secondary.main" className="textStats" sx={{ paddingBottom: '10px' }}>
                     <Link
                             to={`/team/${bestAttack.teamName}`}
@@ -179,11 +183,15 @@ export default function LeagueAwards() {
                         <img src={bestAttackLogo} alt="Logo Team" style={{ width: 200 }} />
                         </Link>
                     </Typography>
+                    </Grid>
+                    <Grid xs={12} md={8} alignItems="center"sx={{padding:'20px'}}>
                     <Typography variant="h5" component="h5" color="primary.main" className="textStats">
                     ⛳ MIGLIOR ATTACCO
                     </Typography>
+                    </Grid>
                 </Grid>
-                <Grid xs={12} md={4} alignItems="left" className='statsGrid'>
+                <Grid container spacing={2} justifyContent="flex-start" alignItems="center" className='matchGrid' sx={{ backgroundColor: '#fbfbfd', padding: '10px', border: '1px solid #eee', margin: '20px 0px' }}>
+                <Grid xs={12} md={4} alignItems="center"sx={{padding:'20px'}}>
                     <Typography variant="h3" component="h3" color="secondary.main" className="textStats" sx={{ paddingBottom: '10px' }}>
                     <Link
                             to={`/team/${bestDefense.teamName}`}
@@ -195,11 +203,15 @@ export default function LeagueAwards() {
                         <img src={bestDefenseLogo} alt="Logo Team" style={{ width: 200 }} />
                         </Link>
                     </Typography>
+                    </Grid>
+                    <Grid xs={12} md={8} alignItems="center"sx={{padding:'20px'}}>
                     <Typography variant="h5" component="h5" color="primary.main" className="textStats">
                     🛡️ MIGLIOR DIFESA
                     </Typography>
+                    </Grid>
                 </Grid>
-                <Grid xs={12} md={4} alignItems="left" className='statsGrid'>
+                <Grid container spacing={2} justifyContent="flex-start" alignItems="center" className='matchGrid' sx={{ backgroundColor: '#fbfbfd', padding: '10px', border: '1px solid #eee', margin: '20px 0px' }}>
+                <Grid xs={12} md={4} alignItems="center"sx={{padding:'20px'}}>
                     <Typography variant="h3" component="h3" color="secondary.main" className="textStats" sx={{ paddingBottom: '10px' }}>
                     <Link
                             to={`/player/${bestScorer.name}`}
@@ -212,11 +224,15 @@ export default function LeagueAwards() {
                         {bestScorer.name}
                         </Link>
                     </Typography>
+                    </Grid>
+                    <Grid xs={12} md={8} alignItems="center"sx={{padding:'20px'}}>
                     <Typography variant="h5" component="h5" color="primary.main" className="textStats">
                     ⚽ CAPOCANNONIERE
                     </Typography>
                 </Grid>
-                <Grid xs={12} md={4} alignItems="left" className='statsGrid'>
+                </Grid>
+                <Grid container spacing={2} justifyContent="flex-start" alignItems="center" className='matchGrid' sx={{ backgroundColor: '#fbfbfd', padding: '10px', border: '1px solid #eee', margin: '20px 0px' }}>
+                <Grid xs={12} md={4} alignItems="center"sx={{padding:'20px'}}>
                     <Typography variant="h3" component="h3" color="secondary.main" className="textStats" sx={{ paddingBottom: '10px' }}>
                     <Link
                             to={`/player/${bestAssistant.name}`}
@@ -229,11 +245,15 @@ export default function LeagueAwards() {
                         {bestAssistant.name}
                         </Link>
                     </Typography>
+                    </Grid>
+                    <Grid xs={12} md={8} alignItems="center"sx={{padding:'20px'}}>
                     <Typography variant="h5" component="h5" color="primary.main" className="textStats">
                     👟 ASSIST MAN
                     </Typography>
                 </Grid>
-                <Grid xs={12} md={4} alignItems="left" className='statsGrid'>
+                </Grid>
+                <Grid container spacing={2} justifyContent="flex-start" alignItems="center" className='matchGrid' sx={{ backgroundColor: '#fbfbfd', padding: '10px', border: '1px solid #eee', margin: '20px 0px' }}>
+                <Grid xs={12} md={4} alignItems="center"sx={{padding:'20px'}}>
                     <Typography variant="h3" component="h3" color="secondary.main" className="textStats" sx={{ paddingBottom: '10px' }}>
                     <Link
                             to={`/player/${bestGoalkeeper.name}`}
@@ -246,11 +266,15 @@ export default function LeagueAwards() {
                         {bestGoalkeeper.name}
                         </Link>
                     </Typography>
+                    </Grid>
+                    <Grid xs={12} md={8} alignItems="center"sx={{padding:'20px'}}>
                     <Typography variant="h5" component="h5" color="primary.main" className="textStats">
                     🥅 PARATUTTO
                     </Typography>
+                    </Grid>
                 </Grid>
-                <Grid xs={12} md={4} alignItems="left" className='statsGrid'>
+                <Grid container spacing={2} justifyContent="flex-start" alignItems="center" className='matchGrid' sx={{ backgroundColor: '#fbfbfd', padding: '10px', border: '1px solid #eee', margin: '20px 0px' }}>
+                <Grid xs={12} md={4} alignItems="center"sx={{padding:'20px'}}>
                     <Typography variant="h3" component="h3" color="secondary.main" className="textStats" sx={{ paddingBottom: '10px' }}>
                     <Link
                             to={`/player/${mostPlayed.name}`}
@@ -263,11 +287,15 @@ export default function LeagueAwards() {
                         {mostPlayed.name}
                         </Link>
                     </Typography>
+                    </Grid>
+                    <Grid xs={12} md={8} alignItems="center"sx={{padding:'20px'}}>
                     <Typography variant="h5" component="h5" color="primary.main" className="textStats">
                     🎖️ VETERANO
                     </Typography>
+                    </Grid>
                 </Grid>
-                <Grid xs={12} md={4} alignItems="left" className='statsGrid'>
+                <Grid container spacing={2} justifyContent="flex-start" alignItems="center" className='matchGrid' sx={{ backgroundColor: '#fbfbfd', padding: '10px', border: '1px solid #eee', margin: '20px 0px' }}>
+                <Grid xs={12} md={4} alignItems="center"sx={{padding:'20px'}}>
                     <Typography variant="h3" component="h3" color="secondary.main" className="textStats" sx={{ paddingBottom: '10px' }}>
                     <Link
                             to={`/player/${mostHatTricksPlayer.name}`}
@@ -280,11 +308,15 @@ export default function LeagueAwards() {
                         {mostHatTricksPlayer.name}
                         </Link>
                     </Typography>
+                    </Grid>
+                    <Grid xs={12} md={8} alignItems="center"sx={{padding:'20px'}}>
                     <Typography variant="h5" component="h5" color="primary.main" className="textStats">
                     3️⃣ HATTRICK MAN
                     </Typography>
+                    </Grid>
                 </Grid>
-                <Grid xs={12} md={4} alignItems="left" className='statsGrid'>
+                <Grid container spacing={2} justifyContent="flex-start" alignItems="center" className='matchGrid' sx={{ backgroundColor: '#fbfbfd', padding: '10px', border: '1px solid #eee', margin: '20px 0px' }}>
+                <Grid xs={12} md={4} alignItems="center"sx={{padding:'20px'}}>
                     <Typography variant="h3" component="h3" color="secondary.main" className="textStats" sx={{ paddingBottom: '10px' }}>
                     <Link
                             to={`/player/${mostOwnGoalsPlayer.name}`}
@@ -297,10 +329,12 @@ export default function LeagueAwards() {
                         {mostOwnGoalsPlayer.name}
                         </Link>
                     </Typography>
+                    </Grid>
+                    <Grid xs={12} md={8} alignItems="center"sx={{padding:'20px'}}>
                     <Typography variant="h5" component="h5" color="primary.main" className="textStats">
                     ❌ CAPO AUTOCANNONIERE
                     </Typography>
-                </Grid>
+                    </Grid>
             </Grid>
         </>
     );

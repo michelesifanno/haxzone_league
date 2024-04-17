@@ -2,13 +2,15 @@ import { useState, useEffect } from 'react';
 import Box from '@mui/material/Box';
 import { useTheme } from '@mui/material/styles';
 import { Typography, Grid, Container } from '@mui/material';
-import Calendar from '../components/Calendar';
-import LeagueNavigation from '../components/LeagueNavigation';
-import Leaderboard from '../components/Leaderboard';
-import LeagueAwards from '../components/LeagueAwards';
+import StructureNavigation from '../components/StructureNavigation';
+import Struttura from '../components/Struttura';
+import Squadre from '../components/Squadre';
+import Trasferimenti from '../components/Trasferimenti';
+import Partite from '../components/Partite';
+import Sanzioni from '../components/Sanzioni';
+import Faq from '../components/FAQ';
 
-
-export default function League() {
+export default function Regolamento() {
 
     const theme = useTheme();
 
@@ -17,7 +19,7 @@ export default function League() {
         window.scrollTo(0, 0);
     }, []);
 
-    const [activeComponent, setActiveComponent] = useState('calendar');
+    const [activeComponent, setActiveComponent] = useState('struttura');
 
     const handleMenuItemClick = (menuItem) => {
         setActiveMenuItem(menuItem);
@@ -34,15 +36,12 @@ export default function League() {
             }}>
                 <Box sx={{ padding: { xs: '160px 20px 40px 20px', md: '160px 20px 80px 20px' } }}>
                     <Grid container spacing={2} alignItems="center">
-                        <Grid item xs={12} md={1}>
-                            <img src='/logo.png' alt="Logo League" style={{ width: 80 }} />
-                        </Grid>
-                        <Grid item xs={12} md={11}>
+                        <Grid item xs={12}>
                             <Typography variant="h6" component="h6" color={theme.palette.text.secondary}>
-                                HAXZONE
+                                HAXZONE LEAGUE
                             </Typography>
                             <Typography variant="h2" component="h2" color={theme.palette.text.secondary} sx={{ fontWeight: '600' }}>
-                                LEAGUE
+                                REGOLAMENTO
                             </Typography>
                         </Grid>
                     </Grid>
@@ -54,7 +53,7 @@ export default function League() {
                 <Box sx={{
                     padding: '20px',
                 }}>
-                    <LeagueNavigation activeComponent={activeComponent} setActiveComponent={setActiveComponent} />
+                    <StructureNavigation activeComponent={activeComponent} setActiveComponent={setActiveComponent} />
                 </Box>
             </Container>
 
@@ -63,9 +62,12 @@ export default function League() {
                 minHeight: '100vh',
             }}>
                 <Box sx={{ padding: '80px 20px', whiteSpace: 'wrap' }}>
-                    {activeComponent === 'calendar' && <Calendar />}
-                    {activeComponent === 'leaderboard' && <Leaderboard />}
-                    {activeComponent === 'awards' && <LeagueAwards />}
+                    {activeComponent === 'struttura' && <Struttura />}
+                    {activeComponent === 'squadre' && <Squadre />}
+                    {activeComponent === 'trasferimenti' && <Trasferimenti />}
+                    {activeComponent === 'partite' && <Partite />}
+                    {activeComponent === 'sanzioni' && <Sanzioni />}
+                    {activeComponent === 'faq' && <Faq />}
                 </Box>
             </Container>
         </>

@@ -7,7 +7,10 @@ import {
   import Player from "../pages/Player";
   import Team from "../pages/Team";
   import League from "../pages/League";
-  import Calendar from "../components/Calendar";
+  import Valori from "../pages/Valori";
+  import Stats from "../pages/Stats";
+  import Calciomercato from "../pages/Calciomercato";
+  import Regolamento from "../pages/Regolamento";
 
   export const router = createBrowserRouter([
     {
@@ -38,6 +41,22 @@ import {
         {
           path: "/league",
           element: <League />
+        },
+        {
+          path: "/valori",
+          element: <Valori />
+        },
+        {
+          path: "/stats",
+          element: <Stats />
+        },
+        {
+          path: "/calciomercato",
+          element: <Calciomercato />
+        },
+        {
+          path: "/regolamento",
+          element: <Regolamento />
         }
           ]
         }

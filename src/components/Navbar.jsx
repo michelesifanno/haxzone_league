@@ -175,7 +175,7 @@ export default function Navbar(props) {
                     </IconButton>
                 </DrawerHeader>
                 <List>
-                    {['League', 'Teams', 'Players', 'Stats', 'Valori', 'Mercato', 'Trasferimenti', 'Regolamento'].map((text) => (
+                    {['League', 'Teams', 'Players', 'Stats', 'Valori', 'Calciomercato', 'Regolamento'].map((text) => (
                         <ListItem key={text} disablePadding sx={{ my: 2 }} onClick={handleItemClick}>
                             <Link to={`/${text.toLowerCase()}`} style={{ textDecoration: 'none' }}>
                                 <Typography variant="h4" component="h4" sx={{
@@ -184,18 +184,6 @@ export default function Navbar(props) {
                                         color: theme.palette.text.third,
                                     },
                                 }}>
-                                    {text}
-                                </Typography>
-                            </Link>
-                        </ListItem>
-                    ))}
-                </List>
-                <Divider />
-                <List>
-                    {['---'].map((text, index) => (
-                        <ListItem key={text} disablePadding onClick={handleItemClick}>
-                            <Link to={`/${text.toLowerCase()}`} style={{ textDecoration: 'none' }}>
-                                <Typography variant="h3" component="h3" sx={{ color: '#fff', fontWeight: '600', textTransform: 'uppercase', p: 1 }}>
                                     {text}
                                 </Typography>
                             </Link>

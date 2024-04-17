@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useTheme } from '@mui/material/styles';
 import { Link } from 'react-router-dom';
 import useMediaQuery from '@mui/material/useMediaQuery';
-import { Typography, Grid, InputLabel, MenuItem, FormHelperText, FormControl, Select, Divider } from '@mui/material';
+import { Typography, Grid, InputLabel, MenuItem, FormControl, Select, Divider } from '@mui/material';
 
 function MatchCalendar({ matchCalendar, matches }) {
 

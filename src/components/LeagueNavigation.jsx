@@ -7,7 +7,7 @@ import useMediaQuery from '@mui/material/useMediaQuery';
 
 
 
-const LeagueNavigation = ({ activeComponent, setActiveComponent }) => {
+export default function LeagueNavigation ({ activeComponent, setActiveComponent }) {
 
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
@@ -47,6 +47,4 @@ const LeagueNavigation = ({ activeComponent, setActiveComponent }) => {
       </Button>
     </div>
   );
-};
-
-export default LeagueNavigation;
+}

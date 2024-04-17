@@ -8,7 +8,7 @@ import Squadre from '../components/Squadre';
 import Trasferimenti from '../components/Trasferimenti';
 import Partite from '../components/Partite';
 import Sanzioni from '../components/Sanzioni';
-import Faq from '../components/FAQ';
+import Faq from '../components/Faq';
 
 export default function Regolamento() {
 

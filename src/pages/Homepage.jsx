@@ -20,7 +20,7 @@ export default function Homepage() {
       <Container maxWidth={false} sx={{
                 backgroundImage: 'url(/home-gif.gif)',
                 backgroundSize: 'cover',
-                backgroundPosition: 'center right',
+                backgroundPosition: 'center center',
                 backgroundRepeat: 'no-repeat',
                 minWidth: '100vw',
                 marginTop: '-80px',

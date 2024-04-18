@@ -202,7 +202,7 @@ export default function Scorer() {
                                                     {isMobile ?
                                                         (
                                                             <div style={{ display: 'flex', alignItems: 'center', textTransform: 'uppercase' }}>
-                                                                <img src={players.find(player => player.name === player.name)?.team?.logo} alt="Logo Team" style={{ width: 30, marginRight: 10 }} />
+                                                                <img src={players.find(p => p.name === player.name)?.team?.logo} alt="Logo Team" style={{ width: 30, marginRight: 10 }} />
                                                                 {player.name}
                                                             </div>
                                                         )

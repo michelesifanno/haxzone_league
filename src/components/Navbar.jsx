@@ -125,7 +125,7 @@ export default function Navbar(props) {
                                 {isMobile ?
                                     <Button
                                         size="medium"
-                                        to='https://discord.gg/b4QM4K3t'
+                                        href='https://discord.gg/b4QM4K3t'
                                         target='_blank'
                                         variant="contained"
                                         endIcon={<ArrowOutwardOutlinedIcon />}
@@ -136,7 +136,7 @@ export default function Navbar(props) {
                                     :
                                     <Button
                                         size="large"
-                                        to='https://discord.gg/b4QM4K3t'
+                                        href='https://discord.gg/b4QM4K3t'
                                         target='_blank'
                                         variant="contained"
                                         endIcon={<ArrowOutwardOutlinedIcon />}

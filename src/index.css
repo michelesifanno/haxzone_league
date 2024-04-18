@@ -25,6 +25,37 @@
   pointer-events: none;
 }
 
+
+.transferGrid {
+  background-color: #f8f8f8;
+  padding: 20px;
+  border:1px solid #eee;
+  border-top: 3px solid #121212;
+}
+
+.transferGrid:hover {
+box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.2);
+}
+
+.nextMatch {
+  background-color: #f8f8f8;
+  padding: 20px;
+  border:1px solid #eee;
+  border-top: 3px solid #ff4900;
+}
+
+.nextMatch:hover {
+box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.2);
+}
+
+.nextMatchSection {
+  margin-top: -200px!important;
+}
+
+.nextMatchSectionMobi {
+  margin-top: -180px!important;
+}
+
 .MuiButtonBase-root.MuiButton-root.MuiButton-contained.MuiButton-containedThird.MuiButton-sizeLarge.MuiButton-containedSizeLarge.MuiButton-colorThird.league-navigation.css-1oli0mj-MuiButtonBase-root-MuiButton-root {
     color: #121212 !important;
 }

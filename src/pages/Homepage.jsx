@@ -1,8 +1,6 @@
 import { useState, useEffect } from 'react';
-import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
 import { useTheme } from '@mui/material/styles';
-import { Container } from '@mui/material';
+import { Container, Typography, Grid, Box } from '@mui/material';
 
 export default function Homepage() {
   const theme = useTheme();
@@ -19,59 +17,27 @@ export default function Homepage() {
 
   return (
     <>
-      <Container
-        maxWidth="false"
-        disableGutters
-        sx={{
-          marginTop: '-80px',
-          minWidth: '100vw',
-          position: 'relative', // Aggiunto posizione relativa al container
-        }}
-      >
-        <Typography
-          variant="h1"
-          component="h1"
-          sx={{
-            position: 'absolute', // Posizionamento assoluto rispetto al container
-            top: '50%',
-            left: '50%',
-            transform: 'translate(-50%, -50%)', // Centra il testo orizzontalmente e verticalmente
-            zIndex: 1, // Assicura che il testo sia sopra al video
-            color: 'white', // Colore del testo
-            textAlign: 'center', // Allinea il testo al centro
-          }}
-        >
-          Haxzone<br/>
-          League
-        </Typography>
-        <Box
-          sx={{
-            position: 'relative',
-            width: '100%',
-            paddingTop: '56.25%',
-            backgroundImage: `url('https://img.youtube.com/vi/JkAptaaFSrE/maxresdefault.jpg')`,
-            backgroundSize: 'cover',
-            overflowX: 'hidden',
-          }}
-        >
-          <iframe
-            title="video-background"
-            width="100%"
-            height="100%"
-            src="https://www.youtube.com/embed/JkAptaaFSrE?mute=1&autoplay=1&loop=1&controls=0&showinfo=0&autohide=0&enablejsapi=1&modestbranding=1&playlist=JkAptaaFSrE&vq=hd1080"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-            style={{
-              position: 'absolute',
-              top: 0,
-              left: 0,
-              width: '100%',
-              height: '100%',
-              pointerEvents: 'none',
-            }}
-          ></iframe>
-        </Box>
-      </Container>
+      <Container maxWidth={false} sx={{
+                backgroundImage: 'url(/sfondo-hax.gif)',
+                backgroundSize: 'cover',
+                backgroundRepeat: 'no-repeat',
+                minWidth: '100vw',
+                marginTop: '-80px',
+                minHeight:'100vh'
+            }}>
+                <Box sx={{ padding: { xs: '160px 20px 40px 20px', md: '160px 20px 80px 20px' } }}>
+                <Grid container spacing={2} alignItems="center">
+                        <Grid item xs={12}>
+                            <Typography variant="h6" component="h6" color={theme.palette.text.secondary}>
+                                HAXZONE
+                            </Typography>
+                            <Typography variant="h2" component="h2" color={theme.palette.text.secondary} sx={{ fontWeight: '600' }}>
+                                LEAGUE
+                            </Typography>
+                        </Grid>
+                    </Grid>
+                </Box>
+            </Container>
     </>
   );
 }

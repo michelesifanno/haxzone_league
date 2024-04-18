@@ -175,7 +175,6 @@ export default function Homepage() {
                         Accedi al nostro canale Discord
                     </Typography>
                     <Button
-                component={Link}
                 size="large"
                 href='https://discord.gg/b4QM4K3t'
                 variant="contained"
@@ -190,9 +189,8 @@ export default function Homepage() {
                         Entra nella nostra room Haxball
                     </Typography>
                     <Button
-                component={Link}
                 size="large"
-                href='https://discord.gg/b4QM4K3t'
+                href='https://www.haxball.com/play?c=i4JUGg4CZD0'
                 variant="contained"
                 endIcon={<ArrowOutwardOutlinedIcon />}
                 sx={{ bgcolor: theme.palette.secondary.main, color: theme.palette.text.secondary, marginTop:'20px' }}

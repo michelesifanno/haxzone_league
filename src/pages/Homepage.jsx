@@ -18,7 +18,7 @@ export default function Homepage() {
   return (
     <>
       <Container maxWidth={false} sx={{
-                backgroundImage: 'url(/sfondo-hax.gif)',
+                backgroundImage: 'url(/home-gif.gif)',
                 backgroundSize: 'cover',
                 backgroundRepeat: 'no-repeat',
                 minWidth: '100vw',

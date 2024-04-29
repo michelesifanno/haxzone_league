@@ -104,9 +104,9 @@ export default function NextMatch() {
 
     return (
         <>
-            <Grid container spacing={2} alignItems="center" className={isMobile ? 'nextMatchSectionMobi' : 'nextMatchSection'}>
+            <Grid container alignItems="center" className={isMobile ? 'nextMatchSectionMobi' : 'nextMatchSection'}>
                 {matchCalendar[giornata].map((match) => (
-                    <Grid item xs={12} md={4} alignItems="center">
+                    <Grid item xs={12} md={4} alignItems="center" sx={{padding:'10px'}}>
                         <div className='nextMatch'>
                             <Typography variant="p" component="p" color={theme.palette.secondary.main} sx={{ display: 'flex', justifyContent: 'center', fontWeight: '600', textTransform: 'uppercase', paddingBottom: '20px' }}>
                                 {giornata}

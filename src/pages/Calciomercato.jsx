@@ -74,7 +74,7 @@ export default function Calciomercato() {
                     <Divider />
                     <br />
                     {trasferimenti.map((transfer, index) =>
-                        <Grid container spacing={2} justifyContent="center" alignItems="center" key={index} className="matchGrid" sx={{ backgroundColor: '#fbfbfd', padding: '10px', border: '1px solid #eee', margin: '20px 0px' }}>
+                        <Grid container justifyContent="center" alignItems="center" key={index} className="matchGrid" sx={{ backgroundColor: '#fbfbfd', padding: '10px', border: '1px solid #eee', margin: '20px 0px' }}>
                             <Grid item xs={12} md={3} alignItems="center" sx={{ padding: '10px' }}>
                                 <Link
                                     to={`/player/${transfer.player}`}

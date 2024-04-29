@@ -16,15 +16,15 @@ export default function Sanzioni() {
 
     return (
         <>
-            <Grid container spacing={2} justifyContent="flex-start" alignItems="center" sx={{ paddingBottom: '20px' }}>
-                <Grid item xs={12} alignItems="center">
+            <Grid container justifyContent="flex-start" alignItems="center" sx={{ paddingBottom: '20px' }}>
+                <Grid item xs={12} alignItems="center" sx={{padding:'10px'}}>
                     <Typography variant="h4" component="h4" color={theme.palette.primary.main} sx={{ fontWeight: '600', paddingBottom: '10px' }}>
                         SANZIONI
                     </Typography>
                     <Divider />
                 </Grid>
             </Grid>
-            <Grid container spacing={2} justifyContent="flex-start">
+            <Grid container justifyContent="flex-start">
                 <Grid item xs={12} alignItems="center" sx={{ padding: '10px' }}>
                     <Typography variant="p" component="p" color={theme.palette.primary.main} sx={{ marginBlock: '20px', fontSize: '18px', lineHeight: '30px' }}>
                         <b>IMBROGLIO SUL VALORE</b>

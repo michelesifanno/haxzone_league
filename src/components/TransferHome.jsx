@@ -43,8 +43,8 @@ export default function TransferHome() {
 
     return (
         <>
-            <Grid container spacing={2} alignItems="center">
-                <Grid item xs={12} alignItems="center">
+            <Grid container alignItems="center">
+                <Grid item xs={12} alignItems="center" sx={{padding:'10px'}}>
                     <Typography variant="h3" component="h3" color={theme.palette.text.secondary} sx={{ fontWeight: '600', paddingBottom: '10px', display:'flex', justifyContent:'center', textAlign:'center' }}>
                         ULTIMI TRASFERIMENTI
                     </Typography>
@@ -54,9 +54,9 @@ export default function TransferHome() {
                 </Grid>
             </Grid>
             <br />
-            <Grid container spacing={2} alignItems="center">
+            <Grid container alignItems="center">
                 {trasferimenti.map((transfer, index) => (
-                    <Grid item xs={12} md={4} alignItems="center">
+                    <Grid item xs={12} md={4} alignItems="center" sx={{padding:'10px'}}>
                         <div className='transferGrid'>
                             <Typography variant="h4" component="h4" color={theme.palette.secondary.main} sx={{ fontWeight: '600', display: 'flex', justifyContent: 'center', textTransform: 'uppercase' }}>
                                 {transfer.player}

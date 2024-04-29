@@ -33,7 +33,7 @@ export default function League() {
                 marginTop: '-80px',
             }}>
                 <Box sx={{ padding: { xs: '160px 20px 40px 20px', md: '160px 20px 80px 20px' } }}>
-                    <Grid container spacing={2} alignItems="center">
+                    <Grid container alignItems="center">
                         <Grid item xs={12} md={1}>
                             <img src='/logo.png' alt="Logo League" style={{ width: 80 }} />
                         </Grid>

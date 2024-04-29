@@ -69,11 +69,11 @@ export default function Team() {
                 marginTop: '-80px',
             }}>
                 <Box sx={{ padding: { xs: '160px 20px 40px 20px', md: '160px 20px 80px 20px' } }}>
-                    <Grid container spacing={2} alignItems="center">
-                        <Grid item xs={12} md={2}>
+                    <Grid container alignItems="center">
+                        <Grid item xs={12} md={2} sx={{padding:'10px'}}>
                             <img src={team.logo} alt="Logo Team" style={{ width: 200 }} />
                         </Grid>
-                        <Grid item xs={12} md={6}>
+                        <Grid item xs={12} md={6} sx={{padding:'10px'}}>
                             <Typography variant={isMobile ? 'h4' : 'h3'} component="h3" color={theme.palette.text.secondary} sx={{ fontWeight: '600', textTransform: 'uppercase' }}>
                                 {team.name}
                             </Typography>
@@ -92,7 +92,7 @@ export default function Team() {
                                                     🧢 {team.cap}</Link> | 🗓️ {team.foundation}
                             </Typography>
                         </Grid>
-                        <Grid item xs={12} md={4}>
+                        <Grid item xs={12} md={4} sx={{padding:'10px'}}>
                             <Typography variant={isMobile ? 'h4' : 'h2'} component="h2" color={theme.palette.text.secondary} sx={{ fontWeight: '600', textAlign: {xs:'left', md:'center' }}}>
                                 {team.colors.split(', ').map((color, index) => (
                                     <span
@@ -177,9 +177,9 @@ export default function Team() {
                     </Typography>
                     <br />
                     
-                    <Grid container spacing={2} justifyContent="flex-start" alignItems="left" sx={{ paddingTop: '20px' }}>
-                        {filteredTeams.slice(0, 6).map(team => (
-                            <Grid item xs={12} md={4} alignItems="left" key={team.id}>
+                    <Grid container justifyContent="flex-start" alignItems="left" sx={{ paddingTop: '20px' }}>
+                        {filteredTeams.slice(0, 3).map(team => (
+                            <Grid item xs={12} md={4} alignItems="left" key={team.id} sx={{padding:'10px'}}>
                                 <Card sx={{ backgroundColor: '#fff', border: '5px solid #000', padding: '30px' }}>
                                     <CardContent sx={{ padding: '0px' }}>
                                         <img src={team.logo} alt="Logo Team" style={{ width: 80 }} />
@@ -204,7 +204,7 @@ export default function Team() {
                             </Grid>
                         ))}
                     </Grid>
-                    <Grid item xs={12} justifyContent="flex-end">
+                    <Grid item xs={12} justifyContent="flex-end" sx={{padding:'10px'}}>
                         <Button
                                             size="large"
                                             variant="contained"

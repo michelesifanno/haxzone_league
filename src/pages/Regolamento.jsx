@@ -35,8 +35,8 @@ export default function Regolamento() {
                 marginTop: '-80px',
             }}>
                 <Box sx={{ padding: { xs: '160px 20px 40px 20px', md: '160px 20px 80px 20px' } }}>
-                    <Grid container spacing={2} alignItems="center">
-                        <Grid item xs={12}>
+                    <Grid container alignItems="center">
+                        <Grid item xs={12} sx={{padding:'10px'}}>
                             <Typography variant="h6" component="h6" color={theme.palette.text.secondary}>
                                 HAXZONE LEAGUE
                             </Typography>

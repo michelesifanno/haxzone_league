@@ -101,7 +101,7 @@ export default function Navbar(props) {
             <ElevationScroll {...props}>
                 <AppBar open={open}>
                     <Toolbar>
-                        <Grid container spacing={2}>
+                        <Grid container>
                             <Grid item xs={4} sm={4} md={4} sx={{ justifyContent: "flex-start", display: 'flex', alignItems: 'center', marginBottom: '-10px' }}>
                                 <IconButton
                                     color="inherit"

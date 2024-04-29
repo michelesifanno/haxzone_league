@@ -121,8 +121,8 @@ export default function HattrickMan() {
 
     return (
         <>
-            <Grid container spacing={2} justifyContent="flex-start" alignItems="center">
-                <Grid item xs={12} alignItems="center">
+            <Grid container justifyContent="flex-start" alignItems="center">
+                <Grid item xs={12} alignItems="center" sx={{padding:'10px'}}>
                     <Typography variant="h4" component="h4" color={theme.palette.primary.main} sx={{ fontWeight: '600', paddingBottom: '10px' }}>
                     HATTRICK
                     </Typography>
@@ -131,8 +131,8 @@ export default function HattrickMan() {
                     </Typography>
                 </Grid>
             </Grid>
-            <Grid container spacing={2} justifyContent="flex-start" alignItems="center" className='matchGrid' sx={{ backgroundColor: '#fbfbfd', padding: '30px', border: '1px solid #eee', margin: '20px 0px' }}>
-                <Grid xs={12} md={2} alignItems="center" sx={{ padding: '10px' }}>
+            <Grid container justifyContent="flex-start" alignItems="center" className='matchGrid' sx={{ backgroundColor: '#fbfbfd', padding: '30px', border: '1px solid #eee', margin: '20px 0px' }}>
+                <Grid item xs={12} md={2} alignItems="center" sx={{ padding: '10px' }}>
                 <Link
                             to={`/team/${mostHatTricksPlayerTeam.logo}`}
                             style={{
@@ -144,7 +144,7 @@ export default function HattrickMan() {
                             <img src={mostHatTricksPlayerTeam.logo} alt="Logo Team" style={logoStyle} />
                     </Link>
                 </Grid>
-                <Grid xs={12} md={6} alignItems="center" sx={{ padding: '10px' }}>
+                <Grid item xs={12} md={6} alignItems="center" sx={{ padding: '10px' }}>
                 <Link
                                                 to={`/player/${mostHatTricksPlayer}`}
                                                 style={{
@@ -163,8 +163,8 @@ export default function HattrickMan() {
                     </Typography>
                 </Grid>
             </Grid>
-            <Grid container spacing={2} justifyContent="flex-start" alignItems="center" sx={{ margin: '20px 0px' }}>
-                <Grid xs={12} alignItems="center">
+            <Grid container justifyContent="flex-start" alignItems="center" sx={{ margin: '20px 0px' }}>
+                <Grid item xs={12} alignItems="center" sx={{padding:'10px'}}>
                     <TableContainer component={Paper}>
                         <Table aria-label="players table">
                             <TableHead sx={{ backgroundColor: theme.palette.third.main }}>

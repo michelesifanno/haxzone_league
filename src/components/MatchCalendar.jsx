@@ -52,8 +52,8 @@ function MatchCalendar({ matchCalendar, matches }) {
 
     return (
         <>
-            <Grid container spacing={2} justifyContent="flex-start" alignItems="center">
-                <Grid item xs={12} md={9} alignItems="center">
+            <Grid container justifyContent="flex-start" alignItems="center">
+                <Grid item xs={12} md={9} alignItems="center" sx={{padding:'10px'}}>
                     <Typography variant="h4" component="h4" color={theme.palette.primary.main} sx={{ fontWeight: '600', paddingBottom: '10px' }}>
                         CALENDARIO E RISULTATI
                     </Typography>
@@ -61,7 +61,7 @@ function MatchCalendar({ matchCalendar, matches }) {
                         Seleziona la giornata per vedere le partite in programma e/o i risultati.
                     </Typography>
                 </Grid>
-                <Grid item xs={12} md={3} alignItems="center">
+                <Grid item xs={12} md={3} alignItems="center" sx={{padding:'10px'}}>
                     <FormControl sx={{ m: 1, width: '100%', color: 'primary.main' }}>
                         <InputLabel sx={{ color: 'primary.main' }} id="giornata-label">Giornata</InputLabel>
                         <Select
@@ -84,7 +84,7 @@ function MatchCalendar({ matchCalendar, matches }) {
             </Grid>
             <Divider sx={{ margin: '10px 0px' }} />
             {(matches[selectedGiornata] || matchCalendar[selectedGiornata] || []).map((match) => (
-                <Grid container spacing={2} justifyContent="flex-start" alignItems="center" key={match.id} className="matchGrid" sx={{ backgroundColor: '#fbfbfd', padding: '10px', border: '1px solid #eee', margin: '20px 0px' }}>
+                <Grid container justifyContent="flex-start" alignItems="center" key={match.id} className="matchGrid" sx={{ backgroundColor: '#fbfbfd', padding: '10px', border: '1px solid #eee', margin: '20px 0px' }}>
                     {isMobile ?
                     <Grid item xs={12} alignItems="center" sx={{ padding: '10px' }}>
                     <Typography variant="p" component="p" color={theme.palette.text.primary} sx={{ fontSize: '14px' }}>

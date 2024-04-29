@@ -115,8 +115,8 @@ const selectedTeam = player.teamName;
                 marginTop: '-80px',
             }}>
                 <Box sx={{ padding: { xs: '160px 20px 40px 20px', md: '160px 20px 80px 20px' } }}>
-                    <Grid container spacing={2} alignItems="center">
-                        <Grid xs={9}>
+                    <Grid container alignItems="center">
+                        <Grid xs={9} sx={{padding:'10px'}}>
                             <Typography variant="h5" component="h5" color={theme.palette.text.secondary}>
                                 {player.role}
                             </Typography>
@@ -124,7 +124,7 @@ const selectedTeam = player.teamName;
                                 {player.name}
                             </Typography>
                         </Grid>
-                        <Grid item xs={3}>
+                        <Grid item xs={3} sx={{padding:'10px'}}>
                         <Typography variant={isMobile ? 'h4' : 'h2'} component="h2" color={theme.palette.text.secondary} sx={{ fontWeight: '600', textAlign: 'center' }}>
                             <div style={{
                                     display: 'inline-flex',
@@ -156,7 +156,7 @@ const selectedTeam = player.teamName;
                     <br />
                     <Divider />
                     <br />
-                    <Grid container spacing={2} justifyContent="flex-start" alignItems="left" sx={{ paddingTop: '40px' }}>
+                    <Grid container justifyContent="flex-start" alignItems="left">
                         <Grid xs={12} md={4} alignItems="left" sx={{padding:'40px'}}>
                             <img src={teamLogo} alt="Logo Team" style={{ width: 100 }} />
                         </Grid>
@@ -256,11 +256,11 @@ const selectedTeam = player.teamName;
                         Clicca su "Scheda Player" per scoprire di più.
                     </Typography>
                     <br />
-                    <Grid container spacing={2} justifyContent="flex-start" alignItems="left" sx={{ paddingTop: '20px' }}>
+                    <Grid container justifyContent="flex-start" alignItems="left" sx={{ paddingTop: '20px' }}>
                         {filteredPlayers
                             .filter(player => player.team.name === selectedTeam) // Filtra i giocatori per squadra selezionata
                             .map(player => (
-                            <Grid xs={6} md={3} alignItems="left" key={player.id}>
+                            <Grid xs={6} md={3} alignItems="left" key={player.id} sx={{padding:'10px'}}>
                                 <Card sx={{ backgroundColor: '#fff', border: '5px solid #171d8d', padding: '30px' }}>
                                     <CardContent sx={{ padding: '0px' }}>
                                         <img src={player.team.logo} alt="Logo Team" style={{ width: 50 }} />

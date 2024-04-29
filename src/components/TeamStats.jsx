@@ -34,7 +34,7 @@ export default function TeamStats({ name }) {
 
     return (
         <>
-            <Grid container spacing={2} justifyContent="flex-start" alignItems="left">
+            <Grid container justifyContent="flex-start" alignItems="left">
                 <Grid item xs={6} md={4} alignItems="left" sx={{ padding: { xs: '20px', md: '40px' } }}>
                     <Typography variant="h3" component="h3" color="secondary.main" className="textStats" sx={{ paddingBottom: '10px' }}>
                         {teamStats.gamesPlayed}

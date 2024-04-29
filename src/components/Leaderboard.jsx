@@ -51,8 +51,8 @@ export default function Leaderboard() {
 
     return (
         <>
-                    <Grid container spacing={2} justifyContent="flex-start" alignItems="center">
-                <Grid item xs={12} md={9} alignItems="center">
+                    <Grid container justifyContent="flex-start" alignItems="center">
+                <Grid item xs={12} md={9} alignItems="center" sx={{padding:'10px'}}>
                     <Typography variant="h4" component="h4" color={theme.palette.primary.main} sx={{ fontWeight: '600', paddingBottom:'10px' }}>
                         CLASSIFICA
                     </Typography>

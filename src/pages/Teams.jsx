@@ -61,7 +61,7 @@ export default function Teams() {
                     <br />
                     <Divider />
                     <br />
-                    <Grid container spacing={2}>
+                    <Grid container>
                         {teams.map((team, index) => (
                             <Grid item key={team.id} xs={12} md={3} className='teamsGrid'>
                                 <Link

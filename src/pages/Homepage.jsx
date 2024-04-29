@@ -41,7 +41,7 @@ export default function Homepage() {
       }}>
         <Box sx={{ padding: '20px', textAlign: 'center' }}>
           <Grid container alignItems="center">
-            <Grid item xs={12}>
+            <Grid item xs={12} sx={{padding:'10px'}}>
               <Typography variant={isMobile ? "h2" : "h1"} color={theme.palette.text.secondary} sx={{ justifyContent: 'center' }}>
                 HAXZONE LEAGUE
               </Typography>
@@ -88,8 +88,8 @@ export default function Homepage() {
         backgroundColor: '#fff',
       }}>
         <Box sx={{ padding: '0px 20px 80px 20px' }}>
-          <Grid container spacing={2} justifyContent="flex-start">
-            <Grid item xs={12} md={6} alignItems="center">
+          <Grid container justifyContent="flex-start">
+            <Grid item xs={12} md={6} alignItems="center" sx={{padding:'10px'}}>
               <LeaderboardHome />
               {isMobile ?
               <Button
@@ -103,7 +103,7 @@ export default function Homepage() {
                 Classifica completa
               </Button> : ''}
             </Grid>
-            <Grid item xs={12} md={6}> 
+            <Grid item xs={12} md={6} sx={{padding:'10px'}}> 
             {isMobile ? (<br />) : ('')}
             {isMobile ? (<br />) : ('')}
               <ScorerHome />
@@ -132,7 +132,7 @@ export default function Homepage() {
       {isMobile ? (
         <Container maxWidth={false} disableGutters>
         <Box sx={{padding:'0px'}}>
-        <Grid container spacing={2} alignItems="center">
+        <Grid container alignItems="center">
                 <Grid item xs={6} alignItems="center" sx={{padding: isMobile ? '40px!important' : '80px!important', backgroundColor:'#251351'}}>
                 <Typography variant= "h5" color={theme.palette.text.secondary} sx={{ fontWeight: '600', paddingBottom: '10px'}}>
                         Accedi a Discord
@@ -169,7 +169,7 @@ export default function Homepage() {
       ) : (
         <Container maxWidth={false} disableGutters>
         <Box sx={{padding:'0px'}}>
-        <Grid container spacing={2} alignItems="center">
+        <Grid container alignItems="center">
                 <Grid item xs={12} md={6} alignItems="center" sx={{padding: isMobile ? '40px!important' : '80px!important', backgroundColor:'#251351'}}>
                     <Typography variant= "h3" color={theme.palette.text.secondary} sx={{ fontWeight: '600', paddingBottom: '10px'}}>
                         Accedi al nostro canale Discord

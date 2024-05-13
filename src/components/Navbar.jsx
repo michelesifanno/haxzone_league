@@ -102,7 +102,7 @@ export default function Navbar(props) {
                 <AppBar open={open}>
                     <Toolbar>
                         <Grid container>
-                            <Grid item xs={4} sm={4} md={4} sx={{ justifyContent: "flex-start", display: 'flex', alignItems: 'center', marginBottom: '-10px' }}>
+                            <Grid item xs={4} sm={4} md={4} sx={{ justifyContent: "flex-start", display: 'flex', alignItems: 'center' }}>
                                 <IconButton
                                     color="inherit"
                                     aria-label="open drawer"
@@ -113,7 +113,7 @@ export default function Navbar(props) {
                                     <MenuIcon sx={{ fontSize: '36px', color: '#fff' }} />
                                 </IconButton>
                             </Grid>
-                            <Grid item xs={4} sm={4} md={4} sx={{ justifyContent: "center", display: 'flex', alignItems: 'center', marginBottom: '-10px' }}>
+                            <Grid item xs={4} sm={4} md={4} sx={{ justifyContent: "center", display: 'flex', alignItems: 'center'}}>
                                 <img
                                     src='/logo.png'
                                     alt='Logo'
@@ -121,7 +121,7 @@ export default function Navbar(props) {
                                     style={{ padding: '7px' }}
                                 />
                             </Grid>
-                            <Grid item xs={4} sm={4} md={4} sx={{ justifyContent: "flex-end", display: 'flex', alignItems: 'center', marginBottom: '-10px' }}>
+                            <Grid item xs={4} sm={4} md={4} sx={{ justifyContent: "flex-end", display: 'flex', alignItems: 'center' }}>
                                 {isMobile ?
                                     <Button
                                         size="medium"

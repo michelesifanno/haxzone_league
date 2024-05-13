@@ -12,6 +12,7 @@ import {
   import Calciomercato from "../pages/Calciomercato";
   import Regolamento from "../pages/Regolamento";
   import Homepage from "../pages/Homepage";
+  import Player2 from "../pages/Player2";
 
   export const router = createBrowserRouter([
     {
@@ -38,7 +39,7 @@ import {
         },
         {
           path: "player/:name",
-          element: <Player />
+          element: <Player2 />
         },
         {
           path: "/league",

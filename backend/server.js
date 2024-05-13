@@ -2,7 +2,6 @@ import express from 'express';
 import mongoose from 'mongoose';
 import cors from 'cors'; // Importa il middleware cors
 
-
 // Inizializza l'app Express
 const app = express();
 
@@ -17,6 +16,7 @@ db.once('open', () => {
   console.log('Connessione a MongoDB riuscita');
 });
 
+// Aggiungi il middleware cors
 app.use(cors());
 
 // Definisci lo schema del giocatore (sostituisci questo con il tuo schema reale)
@@ -50,6 +50,7 @@ app.get('/api/PlayersStats/:playerName', async (req, res) => {
     res.status(500).json({ error: 'Errore durante il recupero delle statistiche del giocatore' });
   }
 });
+
 // Avvia il server
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {

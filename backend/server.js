@@ -20,7 +20,7 @@ app.use(cors());
 
 // Configura le opzioni CORS
 const corsOptions = {
-  origin: 'https://haxzone-league.verce.app', // Sostituisci con il tuo URL frontend
+  origin: 'https://haxzone-league.vercel.app', // Sostituisci con il tuo URL frontend
   methods: ['GET', 'POST'], // Metodi HTTP consentiti
   allowedHeaders: ['Content-Type', 'Authorization'], // Intestazioni consentite
 };

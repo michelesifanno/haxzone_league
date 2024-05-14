@@ -1,4 +1,21 @@
 {
     "version": 2,
-    "rewrites": [{ "source": "/(.*)", "destination": "/api/$1" }]
-}
+    "builds": [
+      {
+        "src": "server.js",
+        "use": "@vercel/node"
+      }
+    ],
+    "routes": [
+      { "handle": "filesystem" },
+      {
+        "src": "/api/PlayersStats/(.*)",
+        "dest": "server.js"
+      },
+      {
+        "src": "/(.*)",
+        "dest": "index.html"
+      }
+    ]
+  }
+  

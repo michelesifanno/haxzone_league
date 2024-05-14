@@ -60,3 +60,5 @@ app.get('/api/PlayersStats/:playerName', async (req, res) => {
     res.status(500).json({ error: 'Errore durante il recupero delle statistiche del giocatore' });
   }
 });
+
+export default app;

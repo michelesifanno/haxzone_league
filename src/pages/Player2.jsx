@@ -19,7 +19,7 @@ export default function Player2() {
         window.scrollTo(0, 0);
         async function fetchPlayerStats() {
             try {
-                const response = await axios.get(`https://haxzone-league.vercel.app/api/PlayersStats/${name}`);
+                const response = await axios.get(`/api/PlayersStats/${name}`);
                 console.log(response.data);
                 setPlayerStats(response.data);
             } catch (error) {

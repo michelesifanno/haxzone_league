@@ -5,8 +5,7 @@ import cors from 'cors'; // Importa il middleware cors
 // Inizializza l'app Express
 const app = express();
 
-// Connessione al database MongoDB utilizzando l'URI fornito
-const MONGODB_URI = 'mongodb+srv://Hax:7cOLdclZ3ipjzcF6@haxzonedb.kesef7b.mongodb.net/HaxZoneEvent';
+const MONGODB_URI = process.env.VITE_MONGODB_URI;
 mongoose.connect(MONGODB_URI);
 
 // Verifica la connessione al database MongoDB
@@ -18,6 +17,17 @@ db.once('open', () => {
 
 // Aggiungi il middleware cors
 app.use(cors());
+
+// Configura le opzioni CORS
+const corsOptions = {
+  origin: 'https://haxzone-league.verce.app', // Sostituisci con il tuo URL frontend
+  methods: ['GET', 'POST'], // Metodi HTTP consentiti
+  allowedHeaders: ['Content-Type', 'Authorization'], // Intestazioni consentite
+};
+
+// Attiva il middleware cors con le opzioni configurate
+app.use(cors(corsOptions));
+
 
 // Definisci lo schema del giocatore (sostituisci questo con il tuo schema reale)
 const playerSchema = new mongoose.Schema({
